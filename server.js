@@ -21,10 +21,10 @@ app.use(methodOverride("_method"))
 app.use(express.static(path.join(__dirname, '/')));
 
 // include router
-const biodataRouter = require("./routes/Router")
+const Router = require("./routes/router")
 
 // routing
-app.use("/", biodataRouter)
+app.use("/", Router)
 
 // starting server
 app.listen(3000, function() {

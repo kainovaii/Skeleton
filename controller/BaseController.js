@@ -1,9 +1,10 @@
-const Biodata = require("../model/Biodata")
+const Service = require("../services/TestService")
+const Biodata = require("../model/Biodata");
 
 module.exports = {
   index: function(req, res) {
     Biodata.get(req.con, function(err, rows) {
-      res.render("wrapper", { data: rows, view: 'biodata/home.ejs' })
+      res.render("wrapper", { dataService: rows, view: 'biodata/home.ejs' })
     })
   },
 
@@ -16,6 +17,12 @@ module.exports = {
   contact: function(req, res) {
     Biodata.get(req.con, function(err, rows) {
       res.render("wrapper", { data: rows, view: 'biodata/contact.ejs' })
+    })
+  },
+
+  legal: function(req, res) {
+    Biodata.get(req.con, function(err, rows) {
+      res.render("wrapper", { data: rows, view: 'biodata/legal.ejs' })
     })
   },
 
