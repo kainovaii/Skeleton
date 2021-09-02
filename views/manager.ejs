@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr" class="js">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Tom Michelon">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>LayCloud - Administration.</title>
+    <link rel="stylesheet" href="/assets/manager/css/dashlite.css?ver=2.4.0">
+    <link id="skin-default" rel="stylesheet" href="/assets/manager/css/theme.css?ver=2.4.0">
+    <script src="https://kit-pro.fontawesome.com/releases/v5.15.1/js/pro.js" data-auto-fetch-svg></script>
+</head>
+
+<body class="nk-body bg-white has-sidebar ">
+<div class="nk-app-root">
+    <!-- main @s -->
+    <div class="nk-main ">
+        <!-- sidebar @s -->
+        <div class="nk-sidebar nk-sidebar-fixed" data-content="sidebarMenu">
+            <div class="nk-sidebar-element nk-sidebar-head">
+                <div class="nk-sidebar-brand">
+                    <a href="/manager/v1" class="logo-link nk-sidebar-logo">
+                        <img class="logo-light logo-img" src="https://i.imgur.com/7nPUM6b.png" alt="logo" width="120">
+                        <img class="logo-dark logo-img" src="https://i.imgur.com/7nPUM6b.png" alt="logo-dark" width="120">
+                    </a>
+                </div>
+                <div class="nk-menu-trigger mr-n2">
+                    <a href="#" class="nk-nav-toggle nk-quick-nav-icon d-xl-none" data-target="sidebarMenu"><em class="icon ni ni-arrow-left"></em></a>
+                </div>
+            </div><!-- .nk-sidebar-element -->
+            <div class="nk-sidebar-element">
+                <div class="nk-sidebar-body" data-simplebar>
+
+                    <div class="nk-sidebar-content">
+                        <div class="nk-sidebar-menu">
+                            <ul class="nk-menu">
+                                <li class="nk-menu-item">
+                                    <a href="/manager" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><i class="fas fa-tachometer-alt-fastest fa-fw icon_lc_color"></i></span>
+                                        <span class="nk-menu-text">Tableau de bord</span>
+                                    </a>
+                                </li><!-- .nk-menu-item -->
+                                <li class="nk-menu-heading">
+                                    <h6 class="overline-title text-primary-alt">GESTION CLIENTS</h6>
+                                </li><!-- .nk-menu-item -->
+                                <li class="nk-menu-item">
+                                    <a href="/manager/v1/client/research" class="nk-menu-link">
+                                        <span class="nk-menu-icon"> <i class="fas fa-users fa-fw icon_lc_color"></i></span>
+                                        <span class="nk-menu-text">Rechercher un client</span>
+                                    </a>
+                                </li><!-- .nk-menu-item -->
+
+                            </ul><!-- .nk-menu -->
+                        </div><!-- .nk-sidebar-menu -->
+
+                    </div><!-- .nk-sidebar-content -->
+                </div><!-- .nk-sidebar-body -->
+            </div><!-- .nk-sidebar-element -->
+        </div>
+        <!-- sidebar @e -->
+        <!-- wrap @s -->
+        <div class="nk-wrap ">
+            <!-- main header @s -->
+            <div class="nk-header nk-header-fixed is-light">
+                <div class="container-fluid">
+                    <div class="nk-header-wrap">
+                        <div class="nk-menu-trigger d-xl-none ml-n1">
+                            <a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="sidebarMenu"><em class="icon ni ni-menu"></em></a>
+                        </div>
+                        <div class="nk-header-brand d-xl-none">
+                            <a href="" class="logo-link nk-sidebar-logo">
+                                <img class="logo-light logo-img" src="https://i.imgur.com/7nPUM6b.png" alt="logo" width="120">
+                                <img class="logo-dark logo-img" src="https://i.imgur.com/7nPUM6b.png" alt="logo-dark" width="120">
+                            </a>
+                        </div><!-- .nk-header-brand -->
+
+                        <div class="nk-header-tools">
+                            <ul class="nk-quick-nav">
+                                @include('partial.client_menu')
+                            </ul><!-- .nk-quick-nav -->
+                        </div><!-- .nk-header-tools -->
+                    </div><!-- .nk-header-wrap -->
+                </div><!-- .container-fliud -->
+            </div>
+            <!-- main header @e -->
+            <!-- content @s -->
+            <div class="nk-content nk-content-fluid">
+                <div class="container-xl wide-lg">
+                    <div class="nk-content-body">
+                        @yield('content')
+                    </div>
+                </div>
+            </div>
+            <!-- content @e -->
+            <!-- footer @s -->
+            <div class="nk-footer">
+                <div class="container-fluid">
+                    <div class="nk-footer-wrap">
+                        <div class="nk-footer-copyright">Copyright 2021 LayCloud.</div>
+                        <div class="nk-footer-links">
+                            <ul class="nav nav-sm">
+                                <li class="nav-item"><a class="nav-link" href="/fr/statut">Statut des services</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- footer @e -->
+        </div>
+        <!-- wrap @e -->
+    </div>
+    <!-- main @e -->
+</div>
+<!-- app-root @e -->
+<!-- JavaScript -->
+<!--
+                __
+     .,-;-;-,. /'_\
+   _/_/_/_|_\_\) /
+ '-<_><_><_><_>=/\
+   `/_/====/_/-'\_\
+    ""     ""    ""
+-->
+<script src="/assets/manager/js/bundle.js?ver=2.4.0"></script>
+<script src="/assets/manager/js/scripts.js?ver=2.4.0"></script>
+</body>
+
+</html>
