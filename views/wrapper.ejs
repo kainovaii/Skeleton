@@ -1,129 +1,117 @@
-<!DOCTYPE html>
-<html lang="en" class="no-js">
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Tom Michelon</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="author" content="Tom Michelon">
-
-    <link rel="stylesheet" href="/assets/front/css/normalize.css" type="text/css">
-    <link rel="stylesheet" href="/assets/front/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="/assets/front/css/owl.carousel.css" type="text/css">
-    <link rel="stylesheet" href="/assets/front/css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="/assets/front/css/main.css" type="text/css">
-    <script src="https://kit-pro.fontawesome.com/releases/v5.15.1/js/pro.js" data-auto-fetch-svg></script>
-    <script src="/assets/assets/js/modernizr.custom.js"></script>
-<body class="page">
-
-<div class="lm-animated-bg"></div>
-
-<!-- Loading animation -->
-<div class="preloader">
-    <div class="preloader-animation">
-        <div class="preloader-spinner">
-        </div>
-    </div>
-</div>
-<!-- /Loading animation -->
-
-<!-- Scroll To Top Button -->
-<div class="lmpixels-scroll-to-top"><i class="fad fa-chevron-up fa-fw icon_lc_color" style="font-size: 20px"></i></div>
-<!-- /Scroll To Top Button -->
-
-<div class="page-scroll">
-    <div id="page_container" class="page-container bg-move-effect" data-animation="transition-flip-in-right">
-
-        <!-- Header -->
-        <header id="site_header" class="header">
-            <div class="header-content clearfix">
-
-                <!-- Text Logo -->
-                <div class="text-logo">
-                    <a href="/">
-                        <img src="/assets/front/img/logo_red.png" alt="Logo white" width="200">
-                    </a>
+<!doctype html>
+<html lang="fr">
+<%- include('front/partials/head.ejs') %>
+<body class="sidebar-main-active right-column-fixed">
+<!-- Wrapper Start -->
+<div class="wrapper">
+    <!-- Sidebar  -->
+    <%- include('front/partials/sidebar.ejs') %>
+    <!-- TOP Nav Bar -->
+    <div class="iq-top-navbar bg-white">
+        <div class="iq-navbar-custom">
+            <nav class="navbar navbar-expand-lg navbar-light p-0">
+                <div class="iq-menu-bt d-flex align-items-center">
+                    <div class="wrapper-menu">
+                        <div class="main-circle"><i class="ri-arrow-left-s-line"></i></div>
+                        <div class="hover-circle"><i class="ri-arrow-right-s-line"></i></div>
+                    </div>
+                    <div class="iq-navbar-logo d-flex justify-content-between">
+                        <a href="index.html" class="header-logo">
+                            <img src="images/logo.png" class="img-fluid rounded-normal" alt="">
+                            <div class="pt-2 pl-2 logo-title">
+                                <span class="text-danger text-uppercase">Server<span class="text-primary ml-1">360</span></span>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-                <!-- /Text Logo -->
-
-                <!-- Navigation -->
-                <div class="site-nav mobile-menu-hide">
-                    <ul class="leven-classic-menu site-main-menu">
-                        <li class="menu-item">
-                            <a href="/">Home</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="/portfolio">Portfolio</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="/contact">Contact</a>
+                <div class="navbar-breadcrumb">
+                    <h4 class="mb-0 text-dark">Tableau de bord</h4>
+                    <p class="mb-0"><span class="text-danger">Bonjour,</span> Tom</p>
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"  aria-label="Toggle navigation">
+                    <i class="ri-menu-3-line"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto navbar-list">
+                        <li class="nav-item nav-icon">
+                            <a href="#" class="search-toggle iq-waves-effect text-primary rounded">
+                                <i class="ri-notification-line block"></i>
+                                <span class="bg-danger dots"></span>
+                            </a>
+                            <div class="iq-sub-dropdown">
+                                <div class="iq-card shadow-none m-0">
+                                    <div class="iq-card-body p-0">
+                                        <div class="bg-primary p-3">
+                                            <h5 class="mb-0 text-white">All Notifications<small class="badge  badge-light float-right pt-1">4</small></h5>
+                                        </div>
+                                        <a href="#" class="iq-sub-card" >
+                                            <div class="media align-items-center">
+                                                <div class="">
+                                                    <img class="avatar-40 rounded" src="images/user/01.jpg" alt="">
+                                                </div>
+                                                <div class="media-body ml-3">
+                                                    <h6 class="mb-0 ">Emma Watson Barry</h6>
+                                                    <small class="float-right">Just Now</small>
+                                                    <p class="mb-0">95 MB</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </li>
                     </ul>
                 </div>
+                <ul class="navbar-list">
+                    <li class="line-height">
+                        <a href="#" class="search-toggle iq-waves-effect d-flex align-items-center">
+                            <img src="https://lh3.googleusercontent.com/ogw/ADea4I4-xrrSz_iHh8faCqW8RcuVonciceD4OAhlPZvF=s83-c-mo" class="img-fluid rounded-circle" alt="user">
+                        </a>
+                        <div class="iq-sub-dropdown iq-user-dropdown">
+                            <div class="iq-card shadow-none m-0">
+                                <div class="iq-card-body p-0 ">
+                                    <div class="bg-primary p-3">
+                                        <h5 class="mb-0 text-white line-height">Tom Michelon</h5>
+                                        <span class="text-white font-size-12">Admin</span>
+                                    </div>
+                                    <a href="profile.html" class="iq-sub-card iq-bg-primary-hover">
+                                        <div class="media align-items-center">
+                                            <div class="rounded iq-card-icon iq-bg-primary">
+                                                <i class="ri-file-user-line"></i>
+                                            </div>
+                                            <div class="media-body ml-3">
+                                                <h6 class="mb-0 ">My Profile</h6>
+                                                <p class="mb-0 font-size-12">View personal profile details.</p>
+                                            </div>
+                                        </div>
+                                    </a>
 
-                <!-- Mobile Menu Toggle -->
-                <a class="menu-toggle mobile-visible">
-                    <i class="fa fa-bars"></i>
-                </a>
-                <!-- Mobile Menu Toggle -->
-            </div>
-        </header>
-        <!-- /Header -->
-
-        <div id="main" class="site-main">
-            <%- include(view) %>
-        </div>
-
-        <!-- Footer -->
-        <footer class="site-footer clearfix">
-            <div class="footer-social">
-                <ul class="footer-social-links">
-                    <li>
-                        <a href="https://twitter.com/kainovaii" target="_blank"><i class="fad fa-hashtag fa-fw icon_lc_color"></i> Twitter</a>
-                    </li>
-
-                    <li>
-                        <a href="https://github.com/kainovaii" target="_blank"><i class="fad fa-code-branch fa-fw icon_lc_color"></i> Github</a>
-                    </li>
-                    <li>
-                        <a href="/legal"><i class="fad fa-balance-scale fa-fw icon_lc_color"></i> Legal mentions</a>
+                                    <div class="d-inline-block w-100 text-center p-3">
+                                        <a class="bg-primary iq-sign-btn" href="" role="button">Deconnexion<i class="ri-login-box-line ml-2"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </li>
                 </ul>
-            </div>
+            </nav>
+        </div>
+    </div>
+    <!-- TOP Nav Bar END -->
 
-            <div class="footer-copyrights">
-                <p>© 2021 All rights reserved. Tom Michelon.</p>
+    <!-- Page Content  -->
+    <div id="content-page" class="content-page">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <%- include(view) %>
+                </div>
             </div>
-        </footer>
-        <!-- /Footer -->
-
+        </div>
     </div>
 </div>
+<!-- Wrapper END -->
+<%- include('front/partials/foot.ejs') %>
 
-<style>
-    .icon_lc_color {
-        --fa-primary-color: #922F39;
-        --fa-secondary-color: #d26f82;
-    }
-</style>
-
-<!--
-                __
-     .,-;-;-,. /'_\
-   _/_/_/_|_\_\) /
- '-<_><_><_><_>=/\
-   `/_/====/_/-'\_\
-    ""     ""    ""
--->
-<script src="/assets/front/js/jquery-2.1.3.min.js"></script>
-<script src="/assets/front/js/imagesloaded.pkgd.min.js"></script>
-<script src="/assets/front/js/bootstrap.min.js"></script>
-<script src="/assets/front/js/jquery.shuffle.min.js"></script>
-<script src="/assets/front/js/masonry.pkgd.min.js"></script>
-<script src="/assets/front/js/owl.carousel.min.js"></script>
-<script src="/assets/front/js/jquery.magnific-popup.min.js"></script>
-<script src="/assets/front/js/jquery.googlemap.js"></script>
-<script src="/assets/front/js/validator.js"></script>
-<script src="/assets/front/js/main.js"></script>
 </body>
 </html>

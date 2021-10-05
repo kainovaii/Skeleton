@@ -12,11 +12,13 @@
     "dotenv": "^5.0.1",
     "ejs": "^3.1.6",
     "express": "^4.16.3",
+    "express-session": "^1.17.2",
     "method-override": "^3.0.0",
     "mysql": "^2.15.0",
     "pug": "^2.0.3"
   },
   "devDependencies": {
+    "@smartankur4u/vardump": "^1.0.4",
     "nodemon": "^1.17.4",
     "var_dump": "^1.0.5"
   }
