@@ -1,5 +1,5 @@
 module.exports = {
-    get: function(con, table ,callback) {
-        con.query(`SELECT * FROM ${table}`, callback)
+    get: function(con, callback) {
+        con.query('SELECT * FROM users', callback)
     },
 }
