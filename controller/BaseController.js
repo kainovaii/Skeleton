@@ -9,6 +9,7 @@ module.exports = {
         res.render('front/login.ejs')
     },
     dashboard: function(req, res) {
+
         AppModel.get(req.con, function (err, rows) {
             res.render("wrapper", {view: 'front/dashboard.ejs', data: rows})
 
@@ -16,5 +17,7 @@ module.exports = {
                 console.log(data.fname)
             })
         })
+
+
     },
 }

@@ -11,8 +11,10 @@ app.set("view engine", "ejs")
 
 // connecting route to database
 app.use(function(req, res, next) {
-  req.con = con
-  next()
+  if (req.hostname === 'itomori.eu' || 'www.itomori.eu') {
+    req.con = con
+    next()
+  }
   session({
     secret: 'Keep it secret',
     name: 'uniqueSessionID',
