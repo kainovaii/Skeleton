@@ -6539,13 +6539,15 @@ chart.scrollbarY = new am4core.Scrollbar();
 	s.dataFields.categoryX = "category", s.dataFields.openValueY = "open", s.dataFields.valueY = "close", s.tooltipText = "open: {openValueY.value} close: {valueY.value}", s.sequencedInterpolation = !0, s.fillOpacity = 0, s.strokeOpacity = 1, s.columns.template.width = .01, s.tooltip.pointerOrientation = "horizontal", s.bullets.create(am4charts.CircleBullet).locationY = 1;
 	var l = s.bullets.create(am4charts.CircleBullet);
 	l.fill = e.colors.getIndex(4), l.stroke = l.fill, e.cursor = new am4charts.XYCursor
-}), jQuery("#home-chart-11").length && am4core.ready(function() {
+}),
+
+jQuery("#home-cpu-usage").length && am4core.ready(function() {
 
 	am4core.useTheme(am4themes_animated);
 // Themes end
 
 // create chart
-var chart = am4core.create("home-chart-11", am4charts.GaugeChart);
+var chart = am4core.create("home-cpu-usage", am4charts.GaugeChart);
 chart.innerRadius = am4core.percent(82);
 
 /**
@@ -6564,7 +6566,7 @@ axis.renderer.ticks.template.disabled = false
 axis.renderer.ticks.template.strokeOpacity = 0;
 axis.renderer.ticks.template.length = 10;
 axis.renderer.grid.template.disabled = true;
-axis.renderer.labels.template.radius = 20; 
+axis.renderer.labels.template.radius = 20;
 
 /**
  * Axis for ranges
@@ -6619,7 +6621,7 @@ hand.axis = axis2;
 hand.innerRadius = am4core.percent(20);
 hand.startWidth = 10;
 hand.pin.disabled = true;
-hand.value = 50;
+hand.value = 10;
 
 hand.events.on("propertychanged", function(ev) {
   range0.endValue = ev.target.value;
@@ -6637,6 +6639,206 @@ setInterval(function() {
 }, 2000);
 
 }); // end am4core.ready()
+
+jQuery("#home-ram-usage").length && am4core.ready(function() {
+
+	am4core.useTheme(am4themes_animated);
+// Themes end
+
+// create chart
+	var chart = am4core.create("home-ram-usage", am4charts.GaugeChart);
+	chart.innerRadius = am4core.percent(82);
+
+	/**
+	 * Normal axis
+	 */
+
+
+	var axis = chart.xAxes.push(new am4charts.ValueAxis());
+	axis.min = 0;
+	axis.max = 100;
+	axis.strictMinMax = true;
+	axis.renderer.radius = am4core.percent(80);
+	axis.renderer.inside = false;
+	axis.renderer.line.strokeOpacity = 0;
+	axis.renderer.ticks.template.disabled = false
+	axis.renderer.ticks.template.strokeOpacity = 0;
+	axis.renderer.ticks.template.length = 10;
+	axis.renderer.grid.template.disabled = true;
+	axis.renderer.labels.template.radius = 20;
+
+	/**
+	 * Axis for ranges
+	 */
+
+	var colorSet = new am4core.ColorSet();
+
+	var axis2 = chart.xAxes.push(new am4charts.ValueAxis());
+	axis2.min = 0;
+	axis2.max = 100;
+	axis2.strictMinMax = true;
+	axis2.renderer.labels.template.disabled = true;
+	axis2.renderer.ticks.template.disabled = true;
+	axis2.renderer.grid.template.disabled = true;
+
+	var range0 = axis2.axisRanges.create();
+	range0.value = 0;
+	range0.endValue = 50;
+	range0.axisFill.fillOpacity = 1;
+	range0.axisFill.fill = colorSet.getIndex(0);
+
+	range0.axisFill.fill = am4core.color("#4e37b2");
+
+	var range1 = axis2.axisRanges.create();
+	range1.value = 50;
+	range1.endValue = 100;
+	range1.axisFill.fillOpacity = 1;
+	range1.axisFill.fill = colorSet.getIndex(2);
+
+	range1.axisFill.fill = am4core.color("#ff7750");
+
+	/**
+	 * Label
+	 */
+
+	var label = chart.radarContainer.createChild(am4core.Label);
+	label.isMeasured = false;
+	label.fontSize = 0;
+	label.x = am4core.percent(50);
+	label.y = am4core.percent(100);
+	label.horizontalCenter = "middle";
+	label.verticalCenter = "bottom";
+	label.text = "50%";
+
+
+	/**
+	 * Hand
+	 */
+
+	var hand = chart.hands.push(new am4charts.ClockHand());
+	hand.axis = axis2;
+	hand.innerRadius = am4core.percent(20);
+	hand.startWidth = 10;
+	hand.pin.disabled = true;
+	hand.value = 10;
+
+	hand.events.on("propertychanged", function(ev) {
+		range0.endValue = ev.target.value;
+		range1.value = ev.target.value;
+		label.text = axis2.positionToValue(hand.currentPosition).toFixed(1);
+		axis2.invalidate();
+	});
+
+	setInterval(function() {
+		var value = Math.round(Math.random() * 100);
+		var animation = new am4core.Animation(hand, {
+			property: "value",
+			to: value
+		}, 1000, am4core.ease.cubicOut).start();
+	}, 2000);
+
+}); // end am4core.ready()
+
+jQuery("#home-disk-usage").length && am4core.ready(function() {
+
+	am4core.useTheme(am4themes_animated);
+// Themes end
+
+// create chart
+	var chart = am4core.create("home-disk-usage", am4charts.GaugeChart);
+	chart.innerRadius = am4core.percent(82);
+
+	/**
+	 * Normal axis
+	 */
+
+
+	var axis = chart.xAxes.push(new am4charts.ValueAxis());
+	axis.min = 0;
+	axis.max = 100;
+	axis.strictMinMax = true;
+	axis.renderer.radius = am4core.percent(80);
+	axis.renderer.inside = false;
+	axis.renderer.line.strokeOpacity = 0;
+	axis.renderer.ticks.template.disabled = false
+	axis.renderer.ticks.template.strokeOpacity = 0;
+	axis.renderer.ticks.template.length = 10;
+	axis.renderer.grid.template.disabled = true;
+	axis.renderer.labels.template.radius = 20;
+
+	/**
+	 * Axis for ranges
+	 */
+
+	var colorSet = new am4core.ColorSet();
+
+	var axis2 = chart.xAxes.push(new am4charts.ValueAxis());
+	axis2.min = 0;
+	axis2.max = 100;
+	axis2.strictMinMax = true;
+	axis2.renderer.labels.template.disabled = true;
+	axis2.renderer.ticks.template.disabled = true;
+	axis2.renderer.grid.template.disabled = true;
+
+	var range0 = axis2.axisRanges.create();
+	range0.value = 0;
+	range0.endValue = 50;
+	range0.axisFill.fillOpacity = 1;
+	range0.axisFill.fill = colorSet.getIndex(0);
+
+	range0.axisFill.fill = am4core.color("#4e37b2");
+
+	var range1 = axis2.axisRanges.create();
+	range1.value = 50;
+	range1.endValue = 100;
+	range1.axisFill.fillOpacity = 1;
+	range1.axisFill.fill = colorSet.getIndex(2);
+
+	range1.axisFill.fill = am4core.color("#ff7750");
+
+	/**
+	 * Label
+	 */
+
+	var label = chart.radarContainer.createChild(am4core.Label);
+	label.isMeasured = false;
+	label.fontSize = 0;
+	label.x = am4core.percent(50);
+	label.y = am4core.percent(100);
+	label.horizontalCenter = "middle";
+	label.verticalCenter = "bottom";
+	label.text = "50%";
+
+
+	/**
+	 * Hand
+	 */
+
+	var hand = chart.hands.push(new am4charts.ClockHand());
+	hand.axis = axis2;
+	hand.innerRadius = am4core.percent(20);
+	hand.startWidth = 10;
+	hand.pin.disabled = true;
+	hand.value = 10;
+
+	hand.events.on("propertychanged", function(ev) {
+		range0.endValue = ev.target.value;
+		range1.value = ev.target.value;
+		label.text = axis2.positionToValue(hand.currentPosition).toFixed(1);
+		axis2.invalidate();
+	});
+
+	setInterval(function() {
+		var value = Math.round(Math.random() * 100);
+		var animation = new am4core.Animation(hand, {
+			property: "value",
+			to: value
+		}, 1000, am4core.ease.cubicOut).start();
+	}, 2000);
+
+}); // end am4core.ready()
+
+
 
 if(jQuery('#user-chart').length){
 	am4core.ready(function() {
@@ -8851,7 +9053,7 @@ if(jQuery('#home-perfomer-chart').length){
 		am4core.useTheme(am4themes_animated);
 
 		var chart = am4core.create("iq-product-chart", am4charts.XYChart);
-		chart.hiddenState.properties.opacity = 0; 
+		chart.hiddenState.properties.opacity = 0;
 		chart.colors.list = [
 		  am4core.color("#4e37b2")
 		];
@@ -9149,14 +9351,14 @@ if(jQuery('#home-perfomer-chart').length){
 
         var chart = new ApexCharts(document.querySelector("#iq-product-activity"), options);
         chart.render();
-      
-      
+
+
         window.setInterval(function () {
         getNewSeries(lastDate, {
           min: 10,
           max: 90
         })
-      
+
         chart.updateSeries([{
           data: data
         }])
@@ -9826,7 +10028,7 @@ if(jQuery('#home-perfomer-chart').length){
 		series.strokeWidth = 3;
 		series.fillOpacity = 0.5;
 
-		
+
 		// Add cursor
 		chart.cursor = new am4charts.XYCursor();
 		chart.cursor.behavior = "zoomY";
@@ -9842,7 +10044,7 @@ if(jQuery('#home-perfomer-chart').length){
 		// Themes end
 
 		var chart = am4core.create("iq-chart-performance", am4charts.RadarChart);
-		chart.hiddenState.properties.opacity = 0; 
+		chart.hiddenState.properties.opacity = 0;
 		chart.colors.list = [
 		  am4core.color("#4e37b2"),
 		  am4core.color("#ff7750"),
@@ -10289,8 +10491,8 @@ if(jQuery('#home-perfomer-chart').length){
 
 		// Create chart
 		var chart = am4core.create("iq-chart-efficient", am4charts.PieChart);
-		
-		chart.hiddenState.properties.opacity = 0; 
+
+		chart.hiddenState.properties.opacity = 0;
 
 		chart.data = [
 		  {
@@ -10336,7 +10538,7 @@ if(jQuery('#home-perfomer-chart').length){
 
 
 		series.labels.template.disabled = true;
-		
+
 		// series.legend.markers.template.disabled = true;
 
 		series.hiddenState.properties.endAngle = -90;
@@ -11047,7 +11249,7 @@ if(jQuery('#home-perfomer-chart').length){
             columnWidth: '50%'
           }
         },
-        
+
         fill: {
           opacity: [0.85, 0.25, 1],
           gradient: {
@@ -11372,7 +11574,7 @@ if(jQuery('#home-perfomer-chart').length){
 
         var chart = new ApexCharts(document.querySelector("#policy-chart-demo1"), options);
         chart.render();
-    }    
+    }
     if(jQuery('#policy-chart-demo2').length){
 
     	var options = {
@@ -11395,7 +11597,7 @@ if(jQuery('#home-perfomer-chart').length){
           bar: {
             horizontal: true,
             barHeight: '80%',
-        
+
           },
         },
         dataLabels: {
@@ -11405,7 +11607,7 @@ if(jQuery('#home-perfomer-chart').length){
           width: 1,
           colors: ["#fff"]
         },
-        
+
         grid: {
           xaxis: {
             lines: {
@@ -11618,7 +11820,7 @@ if(jQuery('#home-perfomer-chart').length){
 		          useFillColor: true
 		        }
 		    }
-		},	
+		},
         xaxis: {
           type: 'datetime'
         },
@@ -11979,7 +12181,7 @@ if(jQuery('#home-perfomer-chart').length){
 
         var chart = new ApexCharts(document.querySelector("#chart-001"), options);
         chart.render();
-      
+
 	}
 	if (jQuery("#ethernet-chart").length) {
 		var options = {
@@ -12813,7 +13015,7 @@ if(jQuery('#home-perfomer-chart').length){
 
         var chart = new ApexCharts(document.querySelector(".apitime-chart-05"), options);
         chart.render();
-    }    
+    }
     if (jQuery("#average-chart").length) {
     	var options = {
           series: [44, 55, 41],
@@ -12832,7 +13034,7 @@ if(jQuery('#home-perfomer-chart').length){
             chart: {
             },
             legend: {
-              
+
             }
           }
         }]
@@ -12853,12 +13055,12 @@ if(jQuery('#home-perfomer-chart').length){
 	        enabled: true,
 	      }
         },
-        
+
         responsive: [{
           breakpoint: 480,
           options: {
             chart: {
-              
+
             },
             legend: {
               show: false
@@ -12898,7 +13100,7 @@ if(jQuery('#home-perfomer-chart').length){
 
 		// Configure series
 		var polygonTemplate = polygonSeries.mapPolygons.template;
-		polygonTemplate.fill = '#585858';  
+		polygonTemplate.fill = '#585858';
 
 		polygonTemplate.tooltipText = "{name}";
 		polygonTemplate.polygon.fillOpacity = 0.6;
@@ -13249,4 +13451,3 @@ if(jQuery('#home-perfomer-chart').length){
     }
 
 
-    
