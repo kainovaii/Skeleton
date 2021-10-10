@@ -10,13 +10,26 @@ module.exports = {
     },
 
     dashboard: function(req, res) {
-        res.render("wrapper", {view: 'front/dashboard.ejs', username: req.session.userid})
+        if (req.session.userid)
+        {
+            res.render("wrapper", {
+                view: 'front/dashboard.ejs',
+                user_id: req.session.userid,
+                user_username: req.session.username,
+            })
+
+            console.log(req.session)
+        } else {
+            res.redirect("/app/connexion")
+        }
     },
 
-    test: function (req, res) {
-        AppModel.get(req.con, function (err, rows) {
+    test_login: function (req, res) {
+        AppModel.get_user(req.con,1,function (err, rows) {
             rows.forEach(function (data) {
-                console.log(data.fname)
+                req.session.userid = data.id
+                req.session.username = data.username
+                res.redirect("/app")
             })
         })
     }

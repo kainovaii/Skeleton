@@ -6,11 +6,13 @@ router.get("/", BaseController.home)
 router.get("/app/connexion", BaseController.login)
 router.get("/app", BaseController.dashboard)
 
-router.get('/app/logout',(req, res) => {
-
+router.get('/app/deconnexion',(req, res) => {
     req.session.destroy()
     console.log(req.session)
     res.redirect("/app")
 })
+
+// Dev routes
+router.get("/app/test_login", BaseController.test_login)
 
 module.exports = router
