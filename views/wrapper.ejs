@@ -1,3 +1,4 @@
+<% data.forEach(function (data) { %>
 <!doctype html>
 <html lang="fr">
 <%- include('front/partials/head.ejs') %>
@@ -23,41 +24,13 @@
                 </div>
                 <div class="navbar-breadcrumb">
                     <h4 class="mb-0 text-dark">Tableau de bord</h4>
-                    <p class="mb-0"><span class="text-danger">Bonjour,</span> Tom</p>
+                    <p class="mb-0"><span class="text-danger">Bonjour,</span> <%- data.first_name %></p>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"  aria-label="Toggle navigation">
                     <i class="ri-menu-3-line"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto navbar-list">
-                        <li class="nav-item nav-icon">
-                            <a href="#" class="search-toggle iq-waves-effect text-primary rounded">
-                                <i class="ri-notification-line block"></i>
-                                <span class="bg-danger dots"></span>
-                            </a>
-                            <div class="iq-sub-dropdown">
-                                <div class="iq-card shadow-none m-0">
-                                    <div class="iq-card-body p-0">
-                                        <div class="bg-primary p-3">
-                                            <h5 class="mb-0 text-white">All Notifications<small class="badge  badge-light float-right pt-1">4</small></h5>
-                                        </div>
-                                        <a href="#" class="iq-sub-card" >
-                                            <div class="media align-items-center">
-                                                <div class="">
-                                                    <img class="avatar-40 rounded" src="images/user/01.jpg" alt="">
-                                                </div>
-                                                <div class="media-body ml-3">
-                                                    <h6 class="mb-0 ">Emma Watson Barry</h6>
-                                                    <small class="float-right">Just Now</small>
-                                                    <p class="mb-0">95 MB</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
+
                 </div>
                 <ul class="navbar-list">
                     <li class="line-height">
@@ -68,8 +41,8 @@
                             <div class="iq-card shadow-none m-0">
                                 <div class="iq-card-body p-0 ">
                                     <div class="bg-primary p-3">
-                                        <h5 class="mb-0 text-white line-height"><%- user_username %></h5>
-                                        <span class="text-white font-size-12">Admin</span>
+                                        <h5 class="mb-0 text-white line-height"><%- data.first_name %> <%- data.last_name %></h5>
+                                        <!--<span class="text-white font-size-12">Admin</span>-->
                                     </div>
                                     <a href="profile.html" class="iq-sub-card iq-bg-primary-hover">
                                         <div class="media align-items-center">
@@ -109,3 +82,4 @@
 <%- include('front/partials/foot.ejs') %>
 </body>
 </html>
+<% }) %>

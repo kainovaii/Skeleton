@@ -10,18 +10,16 @@ module.exports = {
     },
 
     dashboard: function(req, res) {
-        if (req.session.userid)
-        {
-            res.render("wrapper", {
-                view: 'front/dashboard.ejs',
-                user_id: req.session.userid,
-                user_username: req.session.username,
-            })
+        AppModel.get_user(req.con,1,function (err, rows) {
+            if (req.session.userid)
+            {
+                res.render("wrapper", {view: 'front/dashboard.ejs', data: rows})
+                console.log(req.session)
+            } else {
+                res.redirect("/app/connexion")
+            }
+        })
 
-            console.log(req.session)
-        } else {
-            res.redirect("/app/connexion")
-        }
     },
 
     test_login: function (req, res) {
