@@ -6,6 +6,7 @@ var methodOverride = require("method-override")
 const cookieParser = require("cookie-parser")
 const path = require("path")
 const con = require("./config/db.js")
+const bodyParser = require("body-parser")
 // Using pug template engine
 app.set("views", path.join(__dirname, "views"))
 app.set("view engine", "ejs")
@@ -17,6 +18,7 @@ app.use(function(req, res, next) {
     next()
   }
 })
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(sessions({
   secret: "thisismysecrctekeyfhrgfgrfrty84fwir767",

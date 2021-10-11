@@ -6,7 +6,10 @@ router.get("/", BaseController.home)
 router.get("/app/connexion", BaseController.login)
 router.get("/app", BaseController.dashboard)
 
-router.get('/app/deconnexion',(req, res) => {
+router.post("/app/connexion", BaseController.login2)
+
+
+router.get("/app/deconnexion",(req, res) => {
     req.session.destroy()
     console.log(req.session)
     res.redirect("/app")

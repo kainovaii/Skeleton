@@ -1,5 +1,5 @@
 module.exports = {
-    get_user: function(con, user_id, callback) {
-        con.query('SELECT * FROM administrator WHERE id='+user_id, callback)
+    get_user: function(con, username, callback) {
+        con.query("SELECT * FROM `administrator` WHERE username = 'sysadmin'", callback)
     },
 }
