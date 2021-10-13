@@ -3,7 +3,7 @@ const vardump = require("@smartankur4u/vardump")
 
 module.exports = {
     home: function(req, res) {
-
+        res.redirect("/app")
     },
 
     dashboard: function(req, res) {
