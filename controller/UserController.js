@@ -1,30 +1,40 @@
 const AppModel = require("../model/AppModel");
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const vardump = require("@smartankur4u/vardump")
 
 module.exports = {
-
-
     login: function(req, res) {
-        res.render('front/login.ejs')
+
+
+        if (req.session.userid)
+        {
+            res.redirect('/manager')
+        } else {
+            res.render('front/login.ejs')
+        }
+
     },
 
     login2: function (req, res) {
-        var username = req.body.username;
-        var password = req.body.password;
+        const email = req.body.email;
+        const password = req.body.password;
 
+        AppModel.getUser(req.con, email,function (err, user) {
 
-        AppModel.get_user(req.con, username,function (err, rows) {
-            rows.forEach(function (user) {
-                req.session.userid = user.id
-                res.redirect("/app")
+            user.forEach(function (user) {
+                if (bcrypt.compareSync(password, user.password) === true)
+                {
+                    req.session.userid = user.id
+                    res.redirect("/manager")
+                } else {
+                    res.redirect("/manager")
+                }
             })
         })
     },
 
     logout: function(req, res) {
         req.session.destroy()
-        console.log(req.session)
-        res.redirect("/app")
+        res.redirect("/manager")
     },
 }
