@@ -3,19 +3,27 @@ const bcrypt = require('bcryptjs');
 const vardump = require("@smartankur4u/vardump")
 
 module.exports = {
-    login: function(req, res) {
+    dashboard: function(req, res) {
+        AppModel.getUserID(req.con, req.session.userid,function (err, user) {
+            if (req.session.userid)
+            {
+                res.render("wrapper", {view: 'front/dashboard.ejs', data: user})
+            } else {
+                res.redirect("/manager/connexion")
+            }
+        })
+    },
 
-
+    loginFront: function(req, res) {
         if (req.session.userid)
         {
             res.redirect('/manager')
         } else {
             res.render('front/login.ejs')
         }
-
     },
 
-    login2: function (req, res) {
+    loginReq: function (req, res) {
         const email = req.body.email;
         const password = req.body.password;
 
