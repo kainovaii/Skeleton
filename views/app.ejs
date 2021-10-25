@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html class="no-js" lang="fr">
+
+<head>
+    <title>Itomori</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="user-scalable=no, width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1, minimal-ui" />
+
+    <link rel="stylesheet" href="/assets/front/css/critical.min.css" type="text/css">
+    <link rel="stylesheet" href="/assets/front/css/style.min.css" type="text/css">
+    <script src="https://kit-pro.fontawesome.com/releases/v5.15.1/js/pro.js" data-auto-fetch-svg></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script type="text/javascript" src="/assets/front/js/device.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+<div id="app">
+    <!-- start header -->
+    <header id="top-bar" class="top-bar top-bar--dark" data-nav-anchor="true">
+        <div class="top-bar__inner">
+            <div class="container-fluid">
+                <div class="row align-items-center no-gutters">
+
+                    <a class="top-bar__logo site-logo" href="/">
+                        <img data-aos="flip-up" class="img-fluid" src="/assets/front/img/logo.png" width="159" height="45" alt="Logo" />
+                    </a>
+
+                    <a id="top-bar__navigation-toggler" class="top-bar__navigation-toggler" href="javascript:void(0);">
+                        <span></span>
+                    </a>
+
+                    <div class="top-bar__collapse">
+                        <nav id="top-bar__navigation" class="top-bar__navigation" role="navigation">
+                            <ul>
+                                <li>
+                                    <a class="nav-link" href="">Home</a>
+                                </li>
+                            </ul>
+                        </nav>
+
+                        <div id="top-bar__action" class="top-bar__action">
+                            <div class="d-xl-flex flex-xl-row flex-xl-wrap align-items-xl-center">
+                                <div class="top-bar__auth-btns">
+                                    <a href="/app"><i class="fad fa-lock fa-fw"></i> Se connecter</a>
+                                    <a target="_blank" href="https://discord.com/oauth2/authorize?client_id=789489532399124491&scope=bot&permissions=2147483647" class="custom-btn custom-btn--medium custom-btn--style-3" href="/ouvrir-un-compte/">Ajouter a Discord</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- end header -->
+
+    <%- include(view) %>
+
+    <!-- start footer -->
+    <footer class="footer footer--s5 footer--color-dark">
+        <div class="footer__line footer__line--first">
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-6 col-lg-2">
+                        <div class="footer__item">
+                            <a class="footer__logo site-logo" href="/">
+                                <img class="img-fluid lazy loaded" src="/assets/front/img/logo.png" data-src="img/site_logo/logo_2.png" width="159" height="45" alt="demo" data-was-processed="true">
+                            </a>
+                            <p class="mt-3">Itomori est en aucun cas affilié à Discord</p>
+                        </div>
+                    </div>
+
+                    <div class="col col-sm-5 col-md-3 col-lg-2">
+                        <div class="footer__item">
+                            <h4 class="footer__item__title">List</h4>
+
+                            <nav class="footer__navigation">
+                                <ul>
+                                    <li><a href="">Link</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="footer__waves-container">
+            <svg class="footer__wave js-wave" data-wave="{&quot;height&quot;: 40, &quot;bones&quot;: 5, &quot;amplitude&quot;: 70, &quot;color&quot;: &quot;rgba(215, 219, 224, 0.2)&quot;, &quot;speed&quot;: 0.3}" width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg"><defs></defs><path class="wave-1" d="M 0 86.871 C 175.989 48.859 175.989 48.859 352.027 67.865 C 528.062 86.871 528.062 86.871 704.102 57.9 C 880.134 28.924 880.134 28.924 1056.171 69.677 C 1232.209 110.437 1232.209 110.437 1408.244 88.186 C 1584.279 65.937 1584.279 65.937 1760.319 61.429 L 1760.319 3517.452 L 0 3517.452 Z" fill="rgba(215, 219, 224, 0.2)"></path></svg>
+
+            <svg class="footer__wave js-wave" data-wave="{&quot;height&quot;: 60, &quot;bones&quot;: 4, &quot;amplitude&quot;: 90, &quot;color&quot;: &quot;rgba(215, 219, 224, 0.2)&quot;, &quot;speed&quot;: 0.35}" width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg"><defs></defs><path class="wave-2" d="M 0 92.864 C 217.907 96.028 217.907 96.028 435.879 94.447 C 653.854 92.864 653.854 92.864 871.829 113.435 C 1089.801 134.001 1089.801 134.001 1307.778 118.309 C 1525.75 102.617 1525.75 102.617 1743.725 113.435 L 1743.725 3547.434 L 0 3547.434 Z" fill="rgba(215, 219, 224, 0.2)"></path></svg>
+        </div>
+    </footer>
+    <!-- end footer -->
+</div>
+
+<div id="btn-to-top-wrap">
+    <a id="btn-to-top" class="circled" href="javascript:void(0);" data-visible-offset="800"><i class="fad fa-chevron-up"></i></a>
+</div>
+<!--
+                __
+     .,-;-;-,. /'_\
+   _/_/_/_|_\_\) /
+ '-<_><_><_><_>=/\
+   `/_/====/_/-'\_\
+    ""     ""    ""
+-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/jquery-2.2.4.min.js"><\/script>')</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/assets/front/js/main.min.js"></script>
+<script src="/node_modules/@yaireo/console-colors/index.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</body>
+</html>
