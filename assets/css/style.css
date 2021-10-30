@@ -315,6 +315,10 @@ body.sidebar-main .iq-sidebar .iq-menu li a[aria-expanded="false"].collapsed { b
 #sidebar-bottom .image { margin-top: -70px; }
 #sidebar-bottom .image img { max-width: 60%; }
 
+
+#sidebar-bottom .image-server { margin-top: -60px; }
+#sidebar-bottom .image-server img { max-width: 20% !important; border: solid 4px #FAFBFE; box-shadow: inset 0 0 10px #000000; }
+
 /*---------------------------------------------------------------------
                              Top Menu
 -----------------------------------------------------------------------*/

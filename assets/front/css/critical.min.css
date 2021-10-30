@@ -2141,6 +2141,13 @@ a:hover {
     z-index: -1
 }
 
+.custom-btn--small {
+    min-width: 145px;
+    min-height: 40px;
+    padding-top: 13px;
+    padding-bottom: 13px
+}
+
 .custom-btn--medium {
     min-width: 155px;
     min-height: 54px;
@@ -2242,17 +2249,24 @@ a:hover {
     color: #fff
 }
 
+
 .custom-btn.custom-btn--style-5 {
-    background-color: #30e3ca;
-    border-color: #30e3ca;
+    background-color: #5D43C9;
+    border-color: #5D43C9;
     color: #fff
 }
 
 .custom-btn.custom-btn--style-5:focus,
 .custom-btn.custom-btn--style-5:hover {
-    background-color: #47f2da;
-    border-color: #47f2da
+    background-color: #7461c6;
+    border-color: #7461c6;
 }
+
+.icon_itomori_color {
+    --fa-primary-color: #5D43C9;
+    --fa-secondary-color: #7461c6;
+}
+
 
 .custom-btn.wide {
     width: 100%

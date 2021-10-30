@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<%- include('../front/partials/head.ejs') %>
+<%- include('../../front/partials/head.ejs') %>
 <!-- Sign in Start -->
 <section class="sign-in-page">
     <div class="container p-0" id="sign-in-page-box">
@@ -39,7 +39,7 @@
             <div class="sign-in-page-data">
                 <div class="sign-in-from w-100 m-auto">
                     <h1 class="mb-3 text-center">S'identifier</h1>
-                    <form method="post" action="/manager/connexion" class="mt-4">
+                    <form method="post" action="/app/connexion" class="mt-4">
                         <div class="form-group">
                             <label for="exampleInputEmail2">Nom d'utilisateur</label>
                             <input type="email" name="email" class="form-control mb-0" id="exampleInputEmail2" placeholder="">
@@ -77,6 +77,6 @@
 </section>
 <!-- Sign in END -->
 
-<%- include('../front/partials/foot.ejs') %>
+<%- include('../../front/partials/foot.ejs') %>
 </body>
 </html>

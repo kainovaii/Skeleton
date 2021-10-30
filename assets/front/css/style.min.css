@@ -4255,14 +4255,12 @@ img {
     color: #fff;
     text-align: center;
     text-decoration: none;
-    background-color: #045fa0;
+    background-color: #5B41C8;
     opacity: .7;
     -webkit-transition: opacity .3s ease-in-out;
     -o-transition: opacity .3s ease-in-out;
     transition: opacity .3s ease-in-out
 }
-
-
 
 #btn-to-top:hover {
     opacity: 1

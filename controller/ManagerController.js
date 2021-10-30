@@ -7,7 +7,7 @@ module.exports = {
         AppModel.getUserID(req.con, req.session.userid,function (err, user) {
             if (req.session.userid)
             {
-                res.render("wrapper", {view: 'front/dashboard.ejs', data: user})
+                res.render("manager", {view: 'front/manager/dashboard.ejs', data: user})
             } else {
                 res.redirect("/manager/connexion")
             }
@@ -19,7 +19,7 @@ module.exports = {
         {
             res.redirect('/manager')
         } else {
-            res.render('front/login.ejs')
+            res.render('front/manager/login.ejs')
         }
     },
 
