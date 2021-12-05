@@ -4255,7 +4255,7 @@ img {
     color: #fff;
     text-align: center;
     text-decoration: none;
-    background-color: #5B41C8;
+    background-color: #B40000;
     opacity: .7;
     -webkit-transition: opacity .3s ease-in-out;
     -o-transition: opacity .3s ease-in-out;
@@ -6521,13 +6521,7 @@ img {
     margin-top: 30px
 }
 
-.sidebar {
-    position: relative;
-    min-height: 100%;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    z-index: 3
-}
+
 
 .steps {
     counter-reset: step-num

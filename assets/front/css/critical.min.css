@@ -1414,7 +1414,8 @@ a:hover {
     position: fixed;
     top: 0;
     -webkit-animation-fill-mode: both;
-    animation-fill-mode: both
+    animation-fill-mode: both;
+
 }
 
 .top-bar.is-expanded .top-bar__collapse {
@@ -2067,14 +2068,14 @@ a:hover {
 }
 
 .hero {
-    min-height: 400px;
     padding-top: 180px;
-    padding-bottom: 30px;
+    padding-bottom: 100px;
     background-color: #056eb9;
     color: #fff;
     -webkit-user-select: none;
     -moz-user-select: none;
-    -ms-user-select: none
+    -ms-user-select: none;
+    border-bottom: solid 2px #B40000;
 }
 
 .hero__title {
@@ -2169,10 +2170,10 @@ a:hover {
 .custom-btn.custom-btn--style-1:before {
     content: "";
     opacity: 1;
-    background: -o-linear-gradient(0deg, #6b5392 0, #6b5392 18%, #1165b2 60%, #00a4d4 100%);
+    background: -o-linear-gradient(0deg, #FDDF36 0, #FB8A01 18%, #F75100 50%, #D21800 100%);
     background: -webkit-gradient(linear, left top, right top, color-stop(0, #6b5392), color-stop(18%, #6b5392), color-stop(60%, #1165b2), to(#00a4d4));
-    background: -o-linear-gradient(left, #6b5392 0, #6b5392 18%, #1165b2 60%, #00a4d4 100%);
-    background: linear-gradient(90deg, #6b5392 0, #6b5392 18%, #1165b2 60%, #00a4d4 100%)
+    background: -o-linear-gradient(left, #FDDF36 0, #FB8A01 18%, #F75100 50%, #D21800 100%);
+    background: linear-gradient(90deg, #FDDF36 0, #FB8A01 18%, #F75100 50%, #D21800 100%)
 }
 
 .custom-btn.custom-btn--style-1:focus,
@@ -3852,10 +3853,6 @@ label {
     .start-screen--style-4 {
         margin-bottom: 90px
     }
-    .hero {
-        min-height: 500px;
-        padding-top: 230px
-    }
 }
 
 @media (min-width:1200px) {
@@ -4559,11 +4556,7 @@ label {
     }
     .top-bar__choose-lang .current-lang span:after,
     .top-bar__choose-lang .list-wrap li span:after,
-    .top-bar__navigation a:not(.custom-btn) {
-        -webkit-transition: none;
-        -o-transition: none;
-        transition: none
-    }
+
     .top-bar__auth-btns a:not(.custom-btn):after,
     .top-bar__side-menu-button .line {
         -webkit-transition: none;

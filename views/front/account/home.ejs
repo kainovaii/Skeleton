@@ -1,0 +1,39 @@
+<div id="hero" class="hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://i.imgur.com/MhDGLaZ.jpg); height: 50%; background-position: center; background-repeat: no-repeat; background-size: cover; position: relative;">
+    <div class="container">
+        <h2 class="hero__title"><span>Mon compte</span></h2>
+    </div>
+</div>
+
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-8 col-xl-9">
+                Bienvenue <%- session.username %>
+            </div>
+
+            <div class="spacer py-4 d-md-none"></div>
+
+            <div class="col-12 col-md-4 col-xl-3">
+
+                <!-- start sidebar -->
+                <aside class="sidebar">
+                    <!-- start widget -->
+                    <div class="widget widget--categories">
+                        <h4 class="widget-title">Menu</h4>
+
+                        <ul class="list">
+                            <li class="list__item">
+                                <a class="list__item__link" href="">Mes infrormations</a>
+                                <a class="list__item__link" href="/mon-compte/deconnexion">Deconnexion</a>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </aside>
+                <!-- end sidebar -->
+
+            </div>
+        </div>
+    </div>
+</section>

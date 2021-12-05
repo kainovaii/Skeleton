@@ -3,7 +3,13 @@ const vardump = require("@smartankur4u/vardump")
 
 module.exports = {
     home: function(req, res) {
-        res.render("app", {view: 'front/home.ejs'})
+        const session = req.session;
+        if (session) {
+            res.render("app", {view: 'front/home.ejs', session: session})
+        } else {
+            res.render("app", {view: 'front/home.ejs'})
+        }
+
     },
 
 

@@ -4,53 +4,35 @@ const bcrypt = require('bcryptjs');
 const vardump = require("@smartankur4u/vardump")
 
 module.exports = {
-    dashboard: function(req, res) {
-        AppModel.getUserID(req.con, req.session.userid,function (err, user) {
-            ServerModel.getServerByID(req.con, req.params.id,function (err, server) {
-                if (req.session.userid)
-                {
-                    res.render("client", {view: 'front/app/dashboard.ejs', data: user, data_server: server})
-                } else {
-                    res.redirect("/app/connexion")
-                }
-            })
-        })
-    },
-
-    myServer: function(req, res) {
-        AppModel.getUserID(req.con, req.session.userid,function (err, user) {
-            ServerModel.getServerByUser(req.con, req.session.userid,function (err, server) {
-                if (req.session.userid)
-                {
-                    res.render("client", {view: 'front/app/my_server.ejs', data: user, data_server: server})
-                } else {
-                    res.redirect("/app/connexion")
-                }
-            })
-        })
-    },
 
     loginFront: function(req, res) {
         if (req.session.userid)
         {
-            res.redirect('/app/mes-serveurs')
+            AppModel.getUserID(req.con, req.session.userid,function (err, user) {
+                res.render("app", {view: 'front/account/home.ejs', data: user})
+            })
         } else {
-            res.render('front/app/login.ejs')
+            res.render('front/account/login.ejs')
         }
     },
 
     appHome: function(req, res) {
+        const session = req.session;
+
         if (req.session.userid)
         {
-            res.redirect('/app/mes-serveurs')
+            AppModel.getUserID(req.con, req.session.userid,function (err, user) {
+                res.render("app", {view: 'front/account/home.ejs', data: user, session: session})
+            })
         } else {
-            res.redirect('/app/connexion')
+            res.redirect('/mon-compte/connexion')
         }
     },
 
     loginReq: function (req, res) {
         const email = req.body.email;
         const password = req.body.password;
+        const session = req.session;
 
         AppModel.getUser(req.con, email,function (err, user) {
 
@@ -58,9 +40,12 @@ module.exports = {
                 if (bcrypt.compareSync(password, user.password) === true)
                 {
                     req.session.userid = user.id
-                    res.redirect("/app/mes-serveurs")
+                    req.session.username = user.username
+                    AppModel.getUserID(req.con, req.session.userid,function (err, user) {
+                        res.render("app", {view: 'front/account/home.ejs', data: user, session: session})
+                    })
                 } else {
-                    res.redirect("/app")
+                    res.redirect("/mon-compte")
                 }
             })
         })
@@ -68,6 +53,6 @@ module.exports = {
 
     logout: function(req, res) {
         req.session.destroy()
-        res.redirect("/app")
+        res.redirect("/mon-compte")
     },
 }
