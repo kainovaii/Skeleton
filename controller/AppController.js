@@ -30,11 +30,11 @@ module.exports = {
     },
 
     loginReq: function (req, res) {
-        const email = req.body.email;
+        const username = req.body.username;
         const password = req.body.password;
         const session = req.session;
 
-        AppModel.getUser(req.con, email,function (err, user) {
+        AppModel.getUser(req.con, username,function (err, user) {
 
             user.forEach(function (user) {
                 if (bcrypt.compareSync(password, user.password) === true)

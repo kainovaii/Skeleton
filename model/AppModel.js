@@ -1,6 +1,6 @@
 module.exports = {
-    getUser: function(con, email, callback) {
-        con.query(`SELECT * FROM users WHERE email = '${email}'`, callback)
+    getUser: function(con, username, callback) {
+        con.query(`SELECT * FROM users WHERE username = '${username}'`, callback)
     },
 
     getUserID: function(con, id, callback) {
