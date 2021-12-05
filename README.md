@@ -1,4 +1,4 @@
-﻿# Itomori web
+﻿# SyperCraft web
 
 ### Pour installer le l'application :
 
