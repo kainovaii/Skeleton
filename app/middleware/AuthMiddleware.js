@@ -1,10 +1,10 @@
 const AppModel = require("../model/AuthModel")
 
 module.exports = function (req, res, next) {
-    const client_id = req.session.userid;
+    const userid = req.session.userid;
 
-    if (client_id) {
-        AppModel.getUserID(req.con, client_id,function (err, user) {
+    if (userid) {
+        AppModel.getUserID(req.con, userid,function (err, user) {
             user.forEach(function (user) {
                 if (user.status === 1) {
                     return next();

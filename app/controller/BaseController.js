@@ -5,5 +5,4 @@ module.exports = {
 
         res.render("app", {view: 'home.ejs', session: session})
     },
-
 }
