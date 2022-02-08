@@ -1,4 +1,4 @@
-const AppModel = require("../model/AuthModel");
+const AuhtModel = require("../model/AuthModel");
 const bcrypt = require('bcryptjs');
 const EmailService = require("../service/EmailService")
 
@@ -21,7 +21,7 @@ module.exports = {
         const password = req.body.password;
         const session = req.session;
 
-        AppModel.getUser(req.con, email,function (err, user) {
+        AuhtModel.getUserByEmail(req.con, email,function (err, user) {
 
             if (user.length > 0) {
                 user.forEach(function (user) {
@@ -35,7 +35,7 @@ module.exports = {
                         session.power = user.power
                         session.message = "";
 
-                        AppModel.getUserID(req.con, session.userid,function (err, user) {
+                        AuhtModel.getUserByID(req.con, session.userid,function (err, user) {
                             res.redirect("/auth/dashboard")
                         })
 
