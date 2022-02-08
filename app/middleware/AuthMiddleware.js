@@ -9,7 +9,8 @@ module.exports = function (req, res, next) {
                 if (user.status === 1) {
                     return next();
                 } else {
-                    res.redirect('/auth/dashboard');
+                    req.session.message = "Account not activate";
+                    res.redirect('/auth/login');
                 }
             })
         })
