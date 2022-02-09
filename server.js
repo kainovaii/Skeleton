@@ -22,7 +22,7 @@ app.use(function(req, res, next) {
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(sessions({
-  secret: "thisismysecrctekeyfhrgfgrfrty84fwir767",
+  secret: "wRJSMeKKF2QT4fwpMeJf36POk6yJV",
   saveUninitialized:true,
   cookie: { maxAge: 1000 * 60 * 60 * 24 },
   resave: false
@@ -36,10 +36,7 @@ app.use(methodOverride("_method"))
 app.use(express.static(path.join(__dirname, '/')));
 
 // include router
-const Router = require("./app/routes/Router")
-const http = require("http");
-const https = require("https");
-const fs = require("fs");
+const Router = require("./app/routes/Router");
 
 // routing
 app.use("/", Router)
