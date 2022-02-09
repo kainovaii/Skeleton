@@ -12,7 +12,6 @@ const consoleColor = require("@yaireo/console-colors")
 app.set("views", path.join(__dirname, "app/views"))
 app.set("view engine", "ejs")
 
-
 // connecting route to database
 app.use(function(req, res, next) {
   if (req.hostname === process.env.APP_DOMAIN || 'www.' + process.env.APP_DOMAIN) {
@@ -28,12 +27,6 @@ app.use(sessions({
   cookie: { maxAge: 1000 * 60 * 60 * 24 },
   resave: false
 }));
-
-paypal.configure({
-  'mode': process.env.PAYPAL_ENV,
-  'client_id': process.env.PAYPAL_ID,
-  'client_secret': process.env.PAYPAL_SECRET
-});
 
 // parsing body request
 app.use(cookieParser());
@@ -55,9 +48,3 @@ app.use("/", Router)
 app.listen(process.env.APP_PORT, function() {
   console.log("server listening on port " + process.env.APP_PORT)
 })
-
-https.createServer({
-  key: fs.readFileSync('key.pem'),
-  cert: fs.readFileSync('cert.pem'),
-  passphrase: 'root'
-}, app).listen(process.env.APP_SSL_PORT);

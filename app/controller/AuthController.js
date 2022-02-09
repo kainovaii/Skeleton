@@ -13,7 +13,12 @@ module.exports = {
     loginFront: function(req, res) {
         const session = req.session;
         const message = req.session.message;
-        res.render("app", {view: 'auth/login.ejs', message: message, session: session})
+        if (!session.userid)
+        {
+            res.render("app", {view: 'auth/login.ejs', message: message, session: session})
+        } else {
+            res.redirect("/auth/dashboard")
+        }
     },
 
     loginReq: function (req, res) {
