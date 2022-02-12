@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html class="no-js" lang="fr">
+
+<head>
+    <title>SyperCraft | Semi-RP</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="user-scalable=no, width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1, minimal-ui" />
+    <meta name="theme-color" content="#056EB9" />
+    <meta name="msapplication-navbutton-color" content="#056EB9" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#056EB9" />
+    <link rel="icon" type="image/png" href="https://i.imgur.com/w836Bmj.png" />
+    <link rel="stylesheet" href="/assets/front/css/style.min.css" type="text/css">
+    <link rel="stylesheet" href="/assets/front/css/critical.min.css" type="text/css">
+    <script type="text/javascript" src="/assets/front/js/device.min.js"></script>
+</head>
+
+<body>
+<div id="app" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://i.imgur.com/MhDGLaZ.jpg); height: 50%; background-position: center; background-repeat: no-repeat; background-size: cover; position: relative;">
+    <!-- start main -->
+    <main role="main">
+        <!-- start section -->
+        <section class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="authorization authorization--login">
+                            <form method="post" class="authorization__form authorization__form--shadow" action="/mon-compte/connexion">
+                                <center>
+                                    <% if (message) {%>
+                                        <span class="text-danger"><%- message %></span>
+                                    <% } %>
+                                </center>
+
+                                <h3 class="__title">Connexion</h3>
+
+                                <div class="input-wrp">
+                                    <input class="textfield textfield--grey" type="text" value="" placeholder="Identifiant de connexion" name="username" inputmode="username" x-inputmode="username" required />
+                                </div>
+
+                                <div class="input-wrp">
+                                    <input class="textfield textfield--grey" type="password" name="password" value="" placeholder="Mot de passe" required />
+                                </div>
+
+                                <button class="custom-btn custom-btn--medium custom-btn--style-1 wide" type="submit" role="button">Connexion</button>
+                                <p class="text-center"><a href="/">Retour a l'accueil</a></p>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end section -->
+    </main>
+    <!-- end main -->
+</div>
+
+<div id="btn-to-top-wrap">
+    <a id="btn-to-top" class="circled" href="javascript:void(0);" data-visible-offset="800"></a>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/jquery-2.2.4.min.js"><\/script>')</script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="/assets/front/js/critical.min.js"></script>
+
+</body>
+</html>

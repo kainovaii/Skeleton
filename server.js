@@ -5,11 +5,13 @@ const app = express()
 var methodOverride = require("method-override")
 const cookieParser = require("cookie-parser")
 const path = require("path")
-const con = require("./config/db.js")
+const con = require("./app/config/db.js")
 const bodyParser = require("body-parser")
-// Using pug template engine
-app.set("views", path.join(__dirname, "views"))
+const paypal = require('paypal-rest-sdk');
+const consoleColor = require("@yaireo/console-colors")
+app.set("views", path.join(__dirname, "app/views"))
 app.set("view engine", "ejs")
+
 
 // connecting route to database
 app.use(function(req, res, next) {
@@ -27,12 +29,11 @@ app.use(sessions({
   resave: false
 }));
 
-app.get('/user',(req, res) => {
-
-  req.session.userid = "mabite";
-  console.log(req.session)
-  res.redirect("/app")
-})
+paypal.configure({
+  'mode': process.env.PAYPAL_ENV,
+  'client_id': process.env.PAYPAL_ID,
+  'client_secret': process.env.PAYPAL_SECRET
+});
 
 // parsing body request
 app.use(cookieParser());
@@ -42,13 +43,21 @@ app.use(methodOverride("_method"))
 app.use(express.static(path.join(__dirname, '/')));
 
 // include router
-const Router = require("./routes/Router")
+const Router = require("./app/routes/Router")
+const http = require("http");
+const https = require("https");
+const fs = require("fs");
 
 // routing
 app.use("/", Router)
-
 
 // starting server
 app.listen(process.env.APP_PORT, function() {
   console.log("server listening on port " + process.env.APP_PORT)
 })
+
+https.createServer({
+  key: fs.readFileSync('key.pem'),
+  cert: fs.readFileSync('cert.pem'),
+  passphrase: 'root'
+}, app).listen(process.env.APP_SSL_PORT);

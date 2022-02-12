@@ -1,0 +1,68 @@
+<div class="col-lg-12">
+    <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+        <div class="iq-card-header d-flex justify-content-between">
+            <div class="iq-header-title">
+                <h4 class="card-title">Mes factures</h4>
+            </div>
+            <div class="iq-card-header-toolbar d-flex align-items-center">
+                <div class="dropdown">
+                    <span class="dropdown-toggle text-primary" id="dropdownMenuButton2" data-toggle="dropdown" aria-expanded="false">
+                        <i class="ri-more-2-fill"></i>
+                    </span>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton2" style="">
+                        <a class="dropdown-item" href="#"><i class="ri-eye-fill mr-2"></i>View</a>
+                        <a class="dropdown-item" href="#"><i class="ri-delete-bin-6-fill mr-2"></i>Delete</a>
+                        <a class="dropdown-item" href="#"><i class="ri-pencil-fill mr-2"></i>Edit</a>
+                        <a class="dropdown-item" href="#"><i class="ri-printer-fill mr-2"></i>Print</a>
+                        <a class="dropdown-item" href="#"><i class="ri-file-download-fill mr-2"></i>Download</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="iq-card-body">
+            <div class="table-responsive">
+                <table class="table mb-0 table-borderless tbl-server-info">
+                    <thead>
+                    <tr>
+                        <th scope="col">Facture</th>
+                        <th scope="col">Date de facturation</th>
+                        <th scope="col">Date d'échéance</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">État</th>
+                        <th scope="col"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% invoice.forEach(function (invoice) { %>
+                        <tr>
+                            <td>
+                                <h6>194600113</h6>
+                            </td>
+                            <td class="pl-0">14/12/2021</td>
+                            <td class="pl-0">15/12/2022</td>
+                            <td class="pl-0">3.99€</td>
+                            <td class="pl-0">
+                                <% if (invoice.state === 0) { %>
+                                    <div class="text-danger"><i class="fad fa-circle"></i> Non Payée</div>
+                                <% } %>
+                                <% if (invoice.state === 1) { %>
+                                    <div class="text-success"><i class="fad fa-circle"></i> Payée</div>
+                                <% } %>
+                            </td>
+
+                            <td>
+                                <span class="text-black font-size-24" id="dropdownMenuButton3">
+                                    <a href="/fr/espace-client/mes-factures/<%- invoice.id %>">
+                                        <i class="fad fa-eye lc-text-info-color"></i>
+                                    </a>
+                                </span>
+                            </td>
+                        </tr>
+                    <% }) %>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

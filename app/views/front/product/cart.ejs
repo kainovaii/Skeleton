@@ -1,0 +1,188 @@
+<% if (cart) { %>
+<section class="section">
+    <div class="start-screen__bg-container">
+        <div class="start-screen__bg" style="background-image: url(/assets/front/img/bg_1.png);background-position: center bottom;"></div>
+    </div>
+</section>
+<!-- Nom défini Sans abonnement -->
+<section class="mt-5" x-data="{ cycle: '', system: '', datacenter: '' }">
+    <div class="container">
+        <form action="/fr/produits/paiement" method="post">
+            <input name="product_price" type="hidden" value="<%- cart.product_price %>">
+            <input name="product_name" type="hidden" value="<%- cart.product_name %>">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-12 col-sm-12">
+                    <div x-data="{ open: false }" class="basing-box p-5">
+                        <div @click="open = true" class="order-basic-sm1">
+                            <strong>Value</strong>
+                            <span><%- session.cart.product_core %> vCore</span>
+                            <span>/</span>
+                            <span><%- session.cart.product_memory %> Go</span>
+                            <span>/</span>
+                            <span><%- session.cart.product_disk %> Go SSD NVMe</span>
+                            <span>/</span>
+                            <span><%- session.cart.product_bandwidth %></span>
+                        </div>
+
+                        <div x-show="open">
+                            <div class="row mt-3">
+                                <!-- Item start -->
+                                <% product_list.forEach(function (product) { %>
+                                    <div class="col-4">
+                                        <div>
+                                            <a class="order_fake_label <% if (session.cart.product_id === product.id) { __append('active') }%>" href="/fr/produits/add/<%- product.id %>">
+                                                <ul class="order_label_container">
+                                                    <li><small>Processeur</small><strong><%- product.core %> vCore</strong></li>
+                                                    <li><small>Mémoire</small><strong><%- product.memory %> Go</strong></li>
+                                                    <li><small>Stockage</small><strong><%- product.disk %> Go SSD</strong></li>
+                                                    <li><small>Connexion</small><strong><%- product.bandwidth %></strong></li>
+                                                </ul>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- Item end -->
+                                <% }) %>
+                            </div>
+                        </div>
+
+                        <div class="hr mt-4 mb-5"></div>
+
+                        <span class="text-primary-dark"><i class="fad fa-globe"></i> Système d'exploitation</span>
+                        <div class="row mt-3">
+                            <div  class="col-3">
+                                <div class="text-center">
+                                    <input @click="system = 'CentOS'" type="radio" name="os_label" id="os_label_centos" required>
+                                    <label class="order_fake_label" for="os_label_centos">
+                                        <img width="50" height="50" src="/assets/front/img/os/icon-centos.svg" alt="">
+                                    </label>
+                                </div>
+                            </div>
+                            <div  class="col-3">
+                                <div class="text-center">
+                                    <input @click="system = 'Debian'" type="radio" name="os_label" id="os_label_debian" required>
+                                    <label class="order_fake_label" for="os_label_debian">
+                                        <img width="50" height="50" src="/assets/front/img/os/icon-debian.svg" alt="">
+                                    </label>
+                                </div>
+                            </div>
+                            <div  class="col-3">
+                                <div class="text-center">
+                                    <input @click="system = 'Fedora'" type="radio" name="os_label" id="os_label_fedora" required>
+                                    <label class="order_fake_label" for="os_label_fedora">
+                                        <img width="50" height="50" src="/assets/front/img/os/icon-fedora.svg" alt="">
+                                    </label>
+                                </div>
+                            </div>
+                            <div  class="col-3">
+                                <div class="text-center">
+                                    <input @click="system = 'FreeBSD'" type="radio" name="os_label" id="os_label_freebsd" required>
+                                    <label class="order_fake_label" for="os_label_freebsd">
+                                        <img width="50" height="50" src="/assets/front/img/os/icon-freebsd.svg" alt="">
+                                    </label>
+                                </div>
+                            </div>
+                            <div  class="col-3">
+                                <div class="text-center">
+                                    <input @click="system = 'OpenBSD'" type="radio" name="os_label" id="os_label_openbsd" required>
+                                    <label class="order_fake_label" for="os_label_openbsd">
+                                        <img width="50" height="50" src="/assets/front/img/os/icon-openbsd.svg" alt="">
+                                    </label>
+                                </div>
+                            </div>
+                            <div  class="col-3">
+                                <div class="text-center">
+                                    <input @click="system = 'Ubuntu'" type="radio" name="os_label" id="os_label_ubuntu" required>
+                                    <label class="order_fake_label" for="os_label_ubuntu">
+                                        <img width="50" height="50" src="/assets/front/img/os/icon-ubuntu.svg" alt="">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hr mt-4 mb-5"></div>
+
+                        <span class="text-primary-dark"><i class="fad fa-map-pin"></i> Localisation</span>
+                        <div class="row mt-3">
+                            <div  class="col-4">
+                                <div class="text-center">
+                                    <input @click="datacenter = 'Paris - France'" type="radio" name="datacenter" id="datacenter_paris" required>
+                                    <label class="order_fake_label datacenter" for="datacenter_paris">
+                                        <img style="margin-left: 10px;" class="datacenter" src="/assets/front/img/flag/flag_fr.png">
+                                        <div>
+                                            <span>Paris</span>
+                                            <small>France</small>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hr mt-4 mb-5"></div>
+
+                        <span class="text-primary-dark"><i class="fad fa-repeat"></i> Cycle de facturation</span>
+                        <div class="row mt-3">
+
+                            <div  class="col-4">
+                                <div class="text-center">
+                                    <input @click="cycle = 'Sans abonnement'" type="radio" name="subscription" id="subscription_0" required>
+                                    <label class="order_fake_label py-5" for="subscription_0">
+                                        <h5 class="text-primary-dark-2 text-uppercase">Sans abonnement</h5>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div  class="col-4">
+                                <div class="text-center">
+                                    <input @click="cycle = '12 mois'" type="radio" name="subscription" id="subscription_12" required>
+                                    <label class="order_fake_label py-5" for="subscription_12">
+                                        <h5 class="text-primary-2 text-uppercase">12 mois</h5>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div  class="col-4">
+                                <div class="text-center">
+                                    <input @click="cycle = '24 mois'" type="radio" name="subscription" id="subscription_24" required>
+                                    <label class="order_fake_label py-5" for="subscription_24">
+                                        <h5 class="text-primary-dark-2 text-uppercase">24 mois</h5>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12">
+                    <div class="basing-box p-3">
+                        <h5>Récapitulatif de commande</h5>
+                        <ul class="check-list">
+                            <li class="p-0" style="font-size: 16px;"><strong>Processeur</strong> <span><%- session.cart.product_core %> vCore</span></li>
+                            <li class="p-0" style="font-size: 16px;"><strong>Mémoire</strong> <span><%- session.cart.product_memory %> Go</span></li>
+                            <li class="p-0" style="font-size: 16px;"><strong>Stockage</strong> <span><%- session.cart.product_disk %> Go SSD NVMe</span></li>
+                            <li class="hr"></li>
+                            <li class="p-0" style="font-size: 16px;"><strong> Système d'exploitation</strong> <span x-text="system"></span></li>
+                            <li class="p-0" style="font-size: 16px;"><strong> Localisation</strong> <span x-text="datacenter"></span></li>
+                            <li class="p-0" style="font-size: 16px;"><strong>Cycle de facturation</strong> <span x-text="cycle"></span></li>
+                            <li class="hr"></li>
+                            <div class="sidebar_cart_footer mb-3">
+                                <span>Total à payer aujourd'hui</span>
+                                <h4><%- cart.product_price %>€</h4>
+                            </div>
+                            <% if (!session.userid) { %>
+                            <a href="/fr/espace-client" class="custom-btn custom-btn--medium custom-btn--style-2 w-100">Connexion</a>
+                            <% } else { %>
+                            <template x-if="system">
+                                <template x-if="datacenter">
+                                    <template x-if="cycle">
+                                        <button type="submit" class="custom-btn custom-btn--medium custom-btn--style-2 w-100">Passer au paiement</button>
+                                    </template>
+                                </template>
+                            </template>
+                            <% } %>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+<% } %>

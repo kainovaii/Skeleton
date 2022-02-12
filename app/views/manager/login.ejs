@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<%- include('../manager/partials/head.ejs') %>
+<!-- Sign in Start -->
+<section class="sign-in-page">
+    <div class="container p-0" id="sign-in-page-box">
+        <div class="bg-white form-container sign-up-container">
+            <div class="sign-in-page-data">
+                <div class="sign-in-from w-100 m-auto">
+                    <h1 class="mb-3 text-center">Inscription</h1>
+
+                </div>
+            </div>
+        </div>
+        <div class="bg-white form-container sign-in-container">
+            <div class="sign-in-page-data">
+                <div class="sign-in-from w-100 m-auto">
+                    <center>
+                        <% if (message) {%>
+                            <span class="text-danger"><%- message %></span>
+                        <% } %>
+                    </center>
+                    <p style="color: #222F3E;" class="text-center text-uppercase font-weight-bold">Accès restreint</p>
+                    <h3 class="mb-3 text-center">Connexion à l'espace client</h3>
+                    <form method="post" action="/fr/espace-client/connexion" class="mt-4">
+                        <div class="form-group">
+                            <label for="email_login">Adresse courriel</label>
+                            <input type="email" name="email" class="form-control mb-0" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="email_login">Mot de passe</label>
+                            <input type="password" name="password" class="form-control mb-0" placeholder="">
+                        </div>
+                        <div class="d-inline-block w-100">
+                            <div class="custom-control custom-checkbox d-inline-block mt-2 pt-1">
+                                <input type="checkbox" class="custom-control-input" id="customCheck2">
+                                <label class="custom-control-label" for="customCheck1">Se souvenir de moi</label>
+                            </div>
+                        </div>
+                        <div class="sign-info">
+                            <button style="background: #222F3E; border-radius: 800px;" type="submit" class="btn btn-primary mb-2">Connexion</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay" style="background: #222F3E;">
+                <div class="overlay-panel overlay-left">
+                    <!--<a class="sign-in-logo mb-5" href="#"><img src="/assets/front/img/logo-light.png" class="img-fluid" alt="logo"></a>-->
+                    <button class="btn iq-border-primary mt-2" id="signIn">Connexion</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <!--<a class="sign-in-logo mb-5" href="#"><img src="/assets/front/img/logo-light.png" class="img-fluid" alt="logo"></a>-->
+                    <button class="btn iq-border-primary mt-2" id="signUp">Inscription</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Sign in END -->
+<style>
+    body {
+    background: url("/assets/front/img/bg_blob.svg");
+    background-size: 40%;
+}
+</style>
+<%- include('../manager/partials/foot.ejs') %>
+</body>
+</html>

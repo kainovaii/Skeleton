@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html class="no-js" lang="fr">
+<head>
+    <title>LayCloud |  Hebergeur VPS - Serveurs de jeux - Web</title>
+    <link rel="icon" type="image/png" href="/assets/front/img/favicon.png">
+    <link rel="stylesheet" href="/assets/front/css/critical.min.css" type="text/css">
+    <script src="https://kit-pro.fontawesome.com/releases/v5.15.1/js/pro.js" data-auto-fetch-svg></script>
+</head>
+
+<body>
+<div id="app">
+    <!-- start header -->
+    <header id="top-bar" class="top-bar top-bar--dark" data-nav-anchor="true" style="padding-left: 180px; padding-right: 180px;">
+        <div class="top-bar__inner">
+            <div class="container-fluid">
+                <div class="row align-items-center no-gutters" style="color: #145595;">
+                    <a class="top-bar__logo site-logo" href="/">
+                        <img class="img-fluid js-tilt" src="/assets/front/img/favicon.png" width="40" alt="Logo" />
+                    </a>
+                    <a id="top-bar__navigation-toggler" class="top-bar__navigation-toggler" href="javascript:void(0);">
+                        <span></span>
+                    </a>
+                    <div class="top-bar__collapse text-uppercase">
+                        <nav id="top-bar__navigation" class="top-bar__navigation" role="navigation">
+                            <ul>
+                                <li class="has-submenu">
+                                    <a class="nav-link" href="javascript:void(0);">BareMetal Cloud</a>
+                                    <ul class="submenu">
+                                        <li><a href="/fr/produits/serveurs-vps-standard">VPS Standard</a></li>
+                                        <li><a href="/fr/produits/serveurs-vps-windows">VPS Windows</a></li>
+                                        <li><a href="/">Serveurs Dediées</a></li>
+                                    </ul>
+                                </li>
+                                <li class="has-submenu">
+                                    <a class="nav-link" href="javascript:void(0);">Web Cloud</a>
+                                    <ul class="submenu">
+                                        <li><a href="/">Nom de domaines</a></li>
+                                        <li><a href="/">Hébergement web</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                        <nav id="top-bar__navigation" class="top-bar__navigation" style="margin-left: auto" role="navigation">
+                            <% if (session.userid) { %>
+                            <div onclick="document.getElementById('lnk').click();" class="user-avatar-link">
+                                <a class="d-none" id="lnk" href="/fr/espace-client"></a>
+                                <img src="https://www.gravatar.com/avatar/f040db5cea3e5404595d9020fee3ab1a?s=1024&d=retro&r=g" alt="">
+                                <span><%- session.username %></span>
+                            </div>
+                            <% } else { %>
+                            <li>
+                                <i style="font-size: 30px; color: #222F3E;" class="fad fa-user-circle"></i>
+                                <a style="vertical-align: 35%; margin-left: 5px; color: #222F3E;" href="/fr/espace-client">Mon compte</a>
+                            </li>
+                            <% } %>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- end header -->
+
+    <%- include(view) %>
+
+    <!-- start footer -->
+    <footer class="footer footer--s5 footer--color-dark">
+        <div class="footer__line footer__line--first">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col col-sm-5 col-md-3 col-lg-2">
+                        <div class="footer__item">
+                            <h4 class="footer__item__title">Nos produits</h4>
+                            <nav class="footer__navigation">
+                                <ul>
+                                    <!-- li class="active" -->
+                                    <li><a href="">Hébergement web</a></li>
+                                    <li><a href="">Nom de domaine</a></li>
+                                    <li><a href="">Serveurs VPS</a></li>
+                                    <li><a href="">Serveurs Dediées</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+
+                    <div class="col col-sm-5 col-md-3 col-lg-2">
+                        <div class="footer__item">
+                            <h4 class="footer__item__title">Outils</h4>
+                            <nav class="footer__navigation">
+                                <ul>
+                                    <!-- li class="active" -->
+                                    <li><a href="">Travaux / Status</a></li>
+                                    <li><a href="">Monitoring</a></li>
+                                    <li><a href="">Documentation</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+
+                    <div class="col col-sm-5 col-md-3 col-lg-3">
+                        <div class="footer__item">
+                            <h4 class="footer__item__title">Informations</h4>
+                            <nav class="footer__navigation">
+                                <ul>
+                                    <!-- li class="active" -->
+                                    <li><a href="">Mentions légales</a></li>
+                                    <li><a href="">Données personnelles</a></li>
+                                    <li><a href="">CGU / CGV</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="footer__item">
+
+
+                            <address class="footer__address footer__address--s3">
+                                <p><strong>Siret:</strong> 90336899100019</p>
+                                <p><strong>Email:</strong> hello@laycloud.eu</p>
+                            </address>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer__waves-container">
+            <svg class="footer__wave js-wave" data-wave="{&quot;height&quot;: 40, &quot;bones&quot;: 5, &quot;amplitude&quot;: 70, &quot;color&quot;: &quot;rgba(215, 219, 224, 0.2)&quot;, &quot;speed&quot;: 0.3}" width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg"><defs></defs><path class="wave-1" d="M 0 79.511 C 152.502 96.613 152.502 96.613 305.102 88.064 C 457.702 79.511 457.702 79.511 610.302 79.859 C 762.902 80.208 762.902 80.208 915.5 65.355 C 1068.098 50.509 1068.098 50.509 1220.698 63.057 C 1373.298 75.603 1373.298 75.603 1525.898 72.12 L 1525.898 3518.5 L 0 3518.5 Z" fill="rgba(215, 219, 224, 0.2)"></path></svg>
+
+            <svg class="footer__wave js-wave" data-wave="{&quot;height&quot;: 60, &quot;bones&quot;: 4, &quot;amplitude&quot;: 90, &quot;color&quot;: &quot;rgba(215, 219, 224, 0.2)&quot;, &quot;speed&quot;: 0.35}" width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg"><defs></defs><path class="wave-2" d="M 0 101.62 C 190.611 128.186 190.611 128.186 381.357 114.903 C 572.106 101.62 572.106 101.62 762.854 111.566 C 953.601 121.515 953.601 121.515 1144.351 97.152 C 1335.101 72.779 1335.101 72.779 1525.847 111.566 L 1525.847 3518.5 L 0 3518.5 Z" fill="rgba(215, 219, 224, 0.2)"></path></svg>
+        </div>
+    </footer>
+    <!-- end footer -->
+</div>
+<div class="wrapper-sm1 hide">
+    <div class="content-sm1">
+        <img class="blob" src="/assets/front/img/blob-1.png" alt="">
+        <img class="cookie" src="https://axeptio.imgix.net/2021/02/persos%20site-44.png?auto=format&fit=crop&w=170&h=auto&dpr=1" alt="">
+        <small>Salut c'est nous...</small>
+        <span>les Cookies !</span>
+        <p>On a attendu d'être sûrs que le contenu de ce site vous intéresse avant de vous déranger, mais on aimerait bien vous accompagner pendant votre visite... <br>C'est OK pour vous ?</p>
+        <div class="buttons">
+            <button class="item button-sm1">Ok pour moi</button>
+        </div>
+    </div>
+</div>
+
+<div id="fo-inner-wrap">
+    <div id="fo-toggle-button" onclick="alterPopupStatus()">
+        <div id="fo-toggle-button-icon" class="fo-icon" style="background-image: url('https://i0.wp.com/cdn3.iconfinder.com/data/icons/chat-bot-emoji-blue-filled-color/300/14134081Untitled-3-512.png');"></div>
+    </div>
+    <div id="fo-conversation-popup-wrapper" class="false" style="right: 30px; width: 350px">
+        <div id="fo-iframe-wrapper">
+            <img class="blob-sm2" src="/assets/front/img/blob-sm2.png" alt="">
+        </div>
+    </div>
+</div>
+
+<!--
+                __
+     .,-;-;-,. /'_\
+   _/_/_/_|_\_\) /
+ '-<_><_><_><_>=/\
+   `/_/====/_/-'\_\
+    ""     ""    ""
+-->
+<script type="text/javascript" src="/assets/front/js/critical.min.js"></script>
+</body>
+</html>

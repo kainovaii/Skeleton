@@ -1,0 +1,42 @@
+<section class="section">
+    <div class="start-screen__bg-container">
+        <div class="start-screen__bg" style="background-image: url(/assets/front/img/bg_1.png);background-position: center bottom;"></div>
+    </div>
+</section>
+<section style="position: relative; top: -160px; margin-top: 15px;">
+    <div class="container">
+        <div class="row">
+
+            <%- include("../partial/sidebar.ejs") %>
+
+            <div class="col-lg-9 col-md-9 col-sm-12">
+                <h3 onclick="document.getElementById('service_link').click();" class="d-flex"><a id="service_link" class="d-none" href="/fr/espace-client/mes-services"></a><div class="fa-button" href="/fr/espace-client"><i class="fad fa-chevron-left"></i></div> Portefeuille</h3>
+                <div class="row">
+                    <div class="col-12 d-flex mt-10">
+                        <h6>Historique de mon compte</h6>
+                    </div>
+                    <div class="col-12">
+                        <div class="mt-3 wallet_card">
+                            <div class="row p-2 pt-3 pb-3 text-center" style="">
+                                <div class="col">13/01/2022 0:01 </div>
+                                <div class="col">Achat service [Web Mini]</div>
+                                <div class="col text-danger">-0.50 €</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="mt-3 wallet_card">
+                            <div class="row p-2 pt-3 pb-3 text-center" style="">
+                                <div class="col">13/01/2022 0:01 </div>
+                                <div class="col">Achat service [Web Mini]</div>
+                                <div class="col text-success">+0.50 €</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

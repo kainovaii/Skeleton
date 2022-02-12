@@ -1,0 +1,64 @@
+<section class="section">
+    <div class="start-screen__bg-container">
+        <div class="start-screen__bg" style="background-image: url(/assets/front/img/bg_1.png);background-position: center bottom;"></div>
+    </div>
+</section>
+<section style="position: relative; top: -160px; margin-top: 15px;">
+    <div class="container">
+        <div class="row">
+
+            <%- include("../partial/sidebar.ejs") %>
+
+            <div class="col-lg-9 col-md-9 col-sm-12">
+                <h3 onclick="document.getElementById('service_link').click();" class="d-flex"><a id="service_link" class="d-none" href="/fr/espace-client"></a><div class="fa-button" href="/fr/espace-client"><i class="fad fa-chevron-left"></i></div> Mes services</h3>
+                
+                <% if (message) {%>
+                    <span class="text-danger"><%- message %></span>
+                <% } %>
+
+                <div class="row">
+                    <% services.forEach(function (service) { %>
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div onclick="document.getElementById('srv_link-<%- service.id %>').click();" class="card-service mb-6">
+                            <div class="card-service-header">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <a id="srv_link-<%- service.id %>" style="color: black !important; font-size: 16px;" href="/fr/espace-client/mes-services/<%- service.id %>"><%- service.name %></a>
+                                    </div>
+                                    <div class="col-4 text-right">
+                                        <% if (service.state === 0) { %>
+                                            <label class="label label-danger">Inactif</label>
+                                        <% } %>
+                                        <% if (service.state === 1) { %>
+                                            <label class="label label-success">Actif</label>
+                                        <% } %>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-service-body">
+                                <div class="p-3 card-service-body-text">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <h6>EXPIRATION</h6>
+                                            <span><%- service.deadline %></span>
+                                        </div>
+                                        <div class="col-6">
+                                            <h6>PRIX</h6>
+                                            <span>5.99€</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="card-service-footer">
+
+                            </div>
+                        </div>
+                    </div>
+                    <% }) %>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
