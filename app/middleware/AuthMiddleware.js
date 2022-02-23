@@ -1,4 +1,4 @@
-const AppModel = require("../model/AppModel")
+const AppModel = require("../model/UserModel")
 
 module.exports = function (req, res, next) {
     const client_id = req.session.userid;

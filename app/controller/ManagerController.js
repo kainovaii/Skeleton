@@ -1,5 +1,6 @@
 const ServiceModel = require("../model/ServiceModel");
 const InvoiceModel = require("../model/InvoiceModel");
+const WalletModel = require("../model/WalletModel");
 
 module.exports = {
     dashboard: function(req, res) {
@@ -26,7 +27,9 @@ module.exports = {
     wallet: function(req, res) {
         const session = req.session;
 
-        res.render("app", {view: 'front/client/wallet/home.ejs', session: session});
+        WalletModel.tran_getByUser(req.con, session.username,function (err, wallet) {
+            res.render("app", {view: 'front/client/wallet/home.ejs', session: session, wallet: wallet});
+        })
     },
     wallet_credit: function(req, res) {
         const session = req.session;

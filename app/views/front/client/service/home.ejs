@@ -44,7 +44,7 @@
                                         </div>
                                         <div class="col-6">
                                             <h6>PRIX</h6>
-                                            <span>5.99€</span>
+                                            <span><%- service.price %>€</span>
                                         </div>
                                     </div>
 
@@ -56,6 +56,11 @@
                         </div>
                     </div>
                     <% }) %>
+                    <% if (!services.length > 0) { %>
+                    <div class="col-12">
+                        <p class="text-center mt-4">Vous n'avez pas de services</p>
+                    </div>
+                    <% } %>
                 </div>
             </div>
         </div>

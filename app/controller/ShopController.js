@@ -9,6 +9,7 @@ module.exports = {
             res.render("app", {view: 'front/product/bare_cloud_standard_vps.ejs', products: products, session: session})
         })
     },
+
     windowsVPS: function(req, res) {
         const session = req.session;
 
@@ -16,6 +17,7 @@ module.exports = {
             res.render("app", {view: 'front/product/bare_cloud_windows_vps.ejs', products: products, session: session})
         })
     },
+
     add: function(req, res) {
         const session = req.session;
         const product_id = req.params.id;
@@ -26,6 +28,7 @@ module.exports = {
                 req.session.cart = {
                     product_id: product.id,
                     product_name: product.name,
+                    product_type: product.type,
                     product_price: product.price,
                     product_core: product.core,
                     product_memory: product.memory,

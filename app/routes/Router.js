@@ -10,6 +10,7 @@ const PayPalController = require("../controller/PayPalController")
 const AdminController = require("../controller/AdminController")
 const PanelController = require("../controller/PanelController")
 const ProxmoxController = require("../controller/ProxmoxController")
+const LegalController = require("../controller/LegalController")
 
 router.get("/proxmox", ProxmoxController.test)
 
@@ -24,9 +25,7 @@ router.get("/", function (req, res) {
 })
 
 router.get("/fr", BaseController.home)
-
-router.get("/sentSMS", BaseController.sentSMS)
-router.get("/sentMail", BaseController.sentMail)
+router.get("/fr/mentions-legales", LegalController.legal_mentions)
 
 // Client area routes
 router.get("/fr/espace-client/connexion", AppController.loginFront)
@@ -38,9 +37,11 @@ router.get("/fr/espace-client/mes-factures", GuardAuth, ManagerController.invoic
 router.get("/fr/espace-client/mes-factures/:id", GuardAuth, ManagerController.invoice_single)
 router.get("/fr/espace-client/support", GuardAuth, ManagerController.dashboard)
 router.get("/fr/espace-client/portefeuille", GuardAuth, ManagerController.wallet)
+router.get("/fr/espace-client/portefeuille/crediter", GuardAuth, ManagerController.wallet)
 router.get("/fr/espace-client/mes-domaines", GuardAuth, ManagerController.domain)
 router.get("/fr/espace-client/mes-domaines/:id", GuardAuth, ManagerController.domain_single)
 router.get("/fr/espace-client/mon-compte", GuardAuth, ManagerController.account)
+router.post("/fr/espace-client/mon-compte", GuardAuth, AppController.updateUser)
 
 // Service / Panel routes
 router.get("/fr/espace-client/mes-services", GuardAuth, ManagerController.service)
@@ -55,10 +56,19 @@ router.get("/fr/espace-client/mes-services/:id/utilisateurs", GuardAuth, PanelCo
 router.get("/fr/produits/serveurs-vps-standard", ShopController.standardVPS)
 router.get("/fr/produits/serveurs-vps-windows", ShopController.windowsVPS)
 router.get("/fr/produits/add/:id", ShopController.add)
-router.get("/fr/produits/configuration", CartMiddleware.checkEmpty ,ShopController.config_index)
-router.post("/fr/produits/paiement", PayPalController.home)
+router.get("/fr/produits/configuration", CartMiddleware.checkEmpty, ShopController.config_index)
+router.post("/fr/produits/paiement", GuardAuth, PayPalController.home)
+router.get("/fr/produits/failed", GuardAuth, CartMiddleware.checkEmpty, PayPalController.failed)
+router.get("/fr/produits/success", GuardAuth, CartMiddleware.checkEmpty, PayPalController.success)
+router.get("/fr/produits/paiement", function (res, req) {res.redirect("/fr")})
 
 // Admin routes
 router.get("/admin", GuardAuth, AdminMiddleware.checkPower, AdminController.home)
+router.get("/admin/client", GuardAuth, AdminMiddleware.checkPower, AdminController.client_all)
+router.get("/admin/client/s/:id", GuardAuth, AdminMiddleware.checkPower, AdminController.client_single)
+router.get("/admin/service", GuardAuth, AdminMiddleware.checkPower, AdminController.service_dashboard)
+router.get("/admin/support", GuardAuth, AdminMiddleware.checkPower, AdminController.support_dashboard)
+router.get("/admin/support/research", GuardAuth, AdminMiddleware.checkPower, AdminController.support_research)
+router.get("/admin/support/s/:id", GuardAuth, AdminMiddleware.checkPower, AdminController.support_single)
 
 module.exports = router

@@ -1,4 +1,8 @@
 module.exports = {
+    getAllUser: function(con, callback) {
+        con.query(`SELECT * FROM users`, callback)
+    },
+
     getUser: function(con, email, callback) {
         con.query(`SELECT * FROM users WHERE email = '${email}'`, callback)
     },
@@ -30,6 +34,22 @@ module.exports = {
               password = '${password}',
               status = '1'
               WHERE id = ${id}`,
+            callback
+        )
+    },
+
+    updateUser: function(con, data, callback) {
+        con.query(
+            `UPDATE users SET 
+              company = '${data.company}',
+              tax_id = '${data.tax_id}',
+              address1 = '${data.address1}',
+              address2 = '${data.address2}',
+              city = '${data.city}',
+              state = '${data.state}',
+              postcode = '${data.postcode}',
+              country = '${data.country}'
+              WHERE id = ${data.id}`,
             callback
         )
     },

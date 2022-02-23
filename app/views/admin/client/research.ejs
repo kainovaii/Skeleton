@@ -1,0 +1,65 @@
+<div class="nk-block nk-block-lg">
+    <div class="card card-preview">
+        <div class="card-inner">
+            <table class="datatable-init nk-tb-list nk-tb-ulist" data-auto-responsive="false">
+                <thead>
+                <tr class="nk-tb-item nk-tb-head">
+                    <th class="nk-tb-col"><span class="sub-text">First name</span></th>
+                    <th class="nk-tb-col tb-col-mb"><span class="sub-text">Last name</span></th>
+                    <th class="nk-tb-col tb-col-md"><span class="sub-text">Username</span></th>
+                    <th class="nk-tb-col tb-col-lg"><span class="sub-text">Email</span></th>
+                    <th class="nk-tb-col tb-col-lg"><span class="sub-text">City</span></th>
+                    <th class="nk-tb-col tb-col-lg"><span class="sub-text">Country</span></th>
+                    <th class="nk-tb-col nk-tb-col-tools text-right"></th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr class="nk-tb-item">
+                    <% users.forEach(function (user) { %>
+                    <td class="nk-tb-col tb-col-md">
+                        <span><%- user.fname %></span>
+                    </td>
+                    <td class="nk-tb-col tb-col-md">
+                        <span><%- user.lname %></span>
+                    </td>
+                    <td class="nk-tb-col tb-col-md">
+                        <span><%- user.username %></span>
+                    </td>
+                    <td class="nk-tb-col tb-col-md">
+                        <span><%- user.email %></span>
+                    </td>
+                    <td class="nk-tb-col tb-col-md">
+                        <span><%- user.city %></span>
+                    </td>
+                    <td class="nk-tb-col tb-col-md">
+                        <span><%- user.country %></span>
+                    </td>
+
+                    <td class="nk-tb-col nk-tb-col-tools">
+                        <a href="/admin/client/s/<%- user.id %>">
+                            <i class="fas fa-eye fa-fw icon_lc_color"></i>
+                        </a>
+                    </td>
+                    <%} ) %>
+                </tr><!-- .nk-tb-item  -->
+
+                </tbody>
+            </table>
+        </div>
+    </div><!-- .card-preview -->
+</div>
+
+<style>
+    .display_none {
+        display: none;
+    }
+
+    label {
+        width: 100%;
+    }
+
+    .dataTables_info {
+        display: none;
+    }
+</style>

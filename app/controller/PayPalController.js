@@ -1,6 +1,9 @@
-const vardump = require("@smartankur4u/vardump")
+const vardump = require("@smartankur4u/vardump");
 const paypal = require("paypal-rest-sdk");
-const ServiceService = require("../service/ServiceService")
+const ServiceService = require("../service/ServiceService");
+const UrlService = require("../service/UrlService");
+const AppModel = require("../model/UserModel");
+const TransactionModel = require("../model/TransactionModel");
 
 paypal.configure({
     'mode': process.env.PAYPAL_ENV,
@@ -29,8 +32,8 @@ module.exports = {
                 "payment_method": "paypal"
             },
             "redirect_urls": {
-                "return_url": "http://" + process.env.APP_DOMAIN + "/success",
-                "cancel_url": "http://" + process.env.APP_DOMAIN + "/cancel"
+                "return_url": "http://" + process.env.APP_DOMAIN + "/fr/produits/success",
+                "cancel_url": "http://" + process.env.APP_DOMAIN + "/fr/produits/failed"
             },
             "transactions": [{
                 "item_list": {
@@ -63,5 +66,45 @@ module.exports = {
         });
     },
 
+    failed: function(req, res) {
+        const session = req.session;
 
+        const search = UrlService.getParams(req.url);
+
+        const data = {
+            token: search.get('token'),
+            paymentId: "null",
+            PayerID: "null",
+            status: 0,
+            username: session.username
+        }
+
+        if (search.get('token')) {
+            TransactionModel.create(req.con, data)
+            res.redirect("/fr/produits/failed");
+        } else {
+            res.render("app", {view: 'front/payment/failed.ejs', session: session})
+        }
+    },
+
+    success: function(req, res) {
+        const session = req.session;
+        const search = UrlService.getParams(req.url);
+
+        const data = {
+            token: search.get('token'),
+            paymentId: search.get('paymentId'),
+            PayerID: search.get('PayerID'),
+            status: 1,
+            username: session.username
+        }
+
+        if (search.get('token')) {
+            TransactionModel.create(req.con, data)
+            res.redirect("/fr/produits/failed");
+        } else {
+
+            res.render("app", {view: 'front/payment/success.ejs', session: session})
+        }
+    },
 }

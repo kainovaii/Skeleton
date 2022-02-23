@@ -1,4 +1,4 @@
-const AppModel = require("../model/AppModel");
+const AppModel = require("../model/UserModel");
 const ShopModel = require("../model/ShopModel");
 const vardump = require('@smartankur4u/vardump')
 const fileGetContents = require('file-get-contents');

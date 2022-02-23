@@ -1,0 +1,32 @@
+<div class="nk-ibx-reply-item nk-reply-item">
+    <div class="nk-reply-header nk-ibx-reply-header is-opened">
+        <div class="nk-reply-desc">
+            @if($message->sender == 1)
+            <div class="nk-reply-avatar user-avatar bg-blue"><span><em class="icon ni ni-user-alt"></em></span></div>
+            <div class="nk-reply-info">
+                <div class="nk-reply-author lead-text">
+                    {{$ticket->client_email}}
+                    <span class="date d-sm-none">20 Jan, 2020</span>
+                </div>
+            </div>
+            @endif
+            @if($message->sender == 2)
+            <div class="nk-reply-avatar user-avatar bg-danger"><span><em class="icon ni ni-user-alt"></em></span></div>
+            <div class="nk-reply-info">
+                <div class="nk-reply-author lead-text">
+                    You
+                    <span class="date d-sm-none">20 Jan, 2020</span>
+                </div>
+            </div>
+            @endif
+        </div>
+        <ul class="nk-reply-tools g-1">
+            <li class="date-msg"><span class="date">14 Jan, 2020</span></li>
+        </ul>
+    </div>
+    <div class="nk-reply-body nk-ibx-reply-body">
+        <div class="nk-reply-entry entry">
+            <p>{{$message->content}}</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,236 @@
+<section class="section start-screen--style-1">
+    <div class="start-screen__bg-container">
+        <div class="start-screen__bg" style="background-image: url(/assets/front/img/bg_1.png);background-position: center bottom;"></div>
+    </div>
+    <div class="start-screen__shapes d-none d-lg-block">
+        <img class="img-shape d-none d-xl-block" src="" />
+        <img class="img-shape" style="width: 300px; margin-right: 25%;" src="/assets/front/img/server-windows.svg" alt=""/>
+    </div>
+    <div class="start-screen__content-container">
+        <div class="start-screen__content__item align-items-center">
+            <div class="container">
+                <div class="row align-items-md-center">
+                    <div class="col-12 col-lg-6 js-tilt">
+                        <div class="section-heading">
+                            <h6 class="__subtitle">Service Cloud</h6>
+                            <h2 class="__title">Serveurs VPS<br><span> Windows standard</span></h2>
+                        </div>
+                        <div>
+                            <ul class="check-list my-md-6">
+                                <li class="p-0"><i class="fad fa-check-circle success-color"></i> Livraison en 1 minute</li>
+                                <li class="p-0"><i class="fad fa-check-circle success-color"></i> Serveur disponible 24H/24 7J/7</li>
+                                <li class="p-0"><i class="fad fa-check-circle success-color"></i> Assistance technique inclus </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="spacer py-4 d-lg-none"></div>
+                    <div class="col-12 col-lg-6  text-center text-lg-right">
+
+                        <figure class="image-container js-tilt" data-tilt-speed="600" data-tilt-max="15" data-tilt-perspective="700">
+                            <img class="img-fluid lazy error" width="520" height="507" src="https://placeholdit.imgix.net/~text?txtsize=21&amp;txt=Image%20not%20load&amp;w=200&amp;h=200" data-src="img/img_4.png" alt="demo" data-was-processed="true">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mt-10">
+    <div class="container">
+
+        <div x-data="{ active: 0 }" class="space-y-4">
+
+            <div x-data="{
+                    id: 1,
+                    get expanded() {
+                        return this.active === this.id
+                    },
+                    set expanded(value) {
+                        this.active = value ? this.id : null
+                    },
+                }" role="region" class="border border-black">
+                <div class="product_item row justify-content-center align-middle">
+                    <div class="mr-4 text-center" style="padding-top: 9px;"><p class="tag tag-bg"><span>S</span></p></div>
+                    <div class="col-sm-12 col-md-1 col-lg-1 ml-md-2 ml-lg-2 pl-sm-3 p-0"><p class="h5">CPU<span>0 vCPU </span></p></div>
+                    <div class="col-sm-12 col-md-1 col-lg-1 mt-sm-2 mt-md-0 mt-lg-0"><p class="h5">RAM <span>0 Go</span></p></div>
+                    <div class="col-sm-12 col-md-1 col-lg-1 mt-sm-2 mt-md-0 mt-lg-0"><p class="h5">DISQUE <span style="">0 Go</span></p></div>
+                    <div class="col-sm-12 col-md-1 col-lg-2 mt-sm-2 mt-md-0 mt-lg-0"><p class="h5">CONNEXION <span>IPv6</span></p></div>
+                    <div class="col-sm-12 col-md-1 col-lg-2 mt-sm-2 mt-md-0 mt-lg-0"><p class="h5">BANDE PASSANTE <span>0 Mbps</span></p></div>
+                    <div class="col-sm-12 col-md-1 col-lg-2 mt-sm-2 mt-md-0 mt-lg-0 pr-4"><span style="color: #222F3E;" class="price">0.00 € / mois</span></div>
+                    <a id="product1" class="d-none" href="/fr/produits/add/4"></a>
+                    <div class="col-2 p-0"><div class="btn" x-on:click="expanded = !expanded" :aria-expanded="expanded">Voir plus</div></div>
+                    <div class="col-12 pt-4" x-show="expanded" x-collapse>
+                        <hr>
+                        <div class="row product_item_expanded mt-2">
+                            <div class="col-sm-12 col-md-2 col-lg-3">
+                                <p class="h5">Processeur<span>Xeon 3.60GHz</span></p>
+                            </div>
+                            <div class="col-sm-12 col-md-2 col-lg-3">
+                                <p class="h5">Virtualisation<span>LXC</span></p>
+                            </div>
+                            <div class="col-sm-12 col-md-2 col-lg-2">
+                                <p class="h5">Disponibilité<span>5 Minutes</span></p>
+                            </div>
+                            <div class="col-sm-12 col-md-2 col-lg-2">
+                                <p class="h5 text-center">Anti DDOS<span><i class="fad fa-check text-success"></i></span></p>
+                            </div>
+                            <div class="col-sm-12 col-md-2 col-lg-2">
+                                <p class="h5 text-center">Docker<span><i class="fad fa-times text-danger"></i></span></p>
+                            </div>
+                        </div>
+                        <div class="btn mt-3" @click="document.getElementById('product1').click();">Commander</div>
+                    </div>
+                </div>
+            </div>
+
+            <div x-data="{
+                    id: 2,
+                    get expanded() {
+                        return this.active === this.id
+                    },
+                    set expanded(value) {
+                        this.active = value ? this.id : null
+                    },
+                }" role="region" class="border border-black">
+                <div class="product_item row justify-content-center align-middle">
+                    <div class="mr-4 text-center" style="padding-top: 9px;"><p class="tag tag-bg"><span>M</span></p></div>
+                    <div class="col-sm-12 col-md-1 col-lg-1 ml-md-2 ml-lg-2 pl-sm-3 p-0"><p class="h5">CPU<span>0 vCPU </span></p></div>
+                    <div class="col-sm-12 col-md-1 col-lg-1 mt-sm-2 mt-md-0 mt-lg-0"><p class="h5">RAM <span>0 Go</span></p></div>
+                    <div class="col-sm-12 col-md-1 col-lg-1 mt-sm-2 mt-md-0 mt-lg-0"><p class="h5">DISQUE <span style="">0 Go</span></p></div>
+                    <div class="col-sm-12 col-md-1 col-lg-2 mt-sm-2 mt-md-0 mt-lg-0"><p class="h5">CONNEXION <span>IPv6</span></p></div>
+                    <div class="col-sm-12 col-md-1 col-lg-2 mt-sm-2 mt-md-0 mt-lg-0"><p class="h5">BANDE PASSANTE <span>0 Mbps</span></p></div>
+                    <div class="col-sm-12 col-md-1 col-lg-2 mt-sm-2 mt-md-0 mt-lg-0 pr-4"><span style="color: #222F3E;" class="price">0.00 € / mois</span></div>
+                    <a id="product2" class="d-none" href="/fr/produits/add/5"></a>
+                    <div class="col-2 p-0"><div class="btn" x-on:click="expanded = !expanded" :aria-expanded="expanded">Voir plus</div></div>
+                    <div class="col-12 pt-4" x-show="expanded" x-collapse>
+                        <hr>
+                        <div class="row product_item_expanded mt-2">
+                            <div class="col-sm-12 col-md-2 col-lg-3">
+                                <p class="h5">Processeur<span>Xeon 3.60GHz</span></p>
+                            </div>
+                            <div class="col-sm-12 col-md-2 col-lg-3">
+                                <p class="h5">Virtualisation<span>LXC</span></p>
+                            </div>
+                            <div class="col-sm-12 col-md-2 col-lg-2">
+                                <p class="h5">Disponibilité<span>5 Minutes</span></p>
+                            </div>
+                            <div class="col-sm-12 col-md-2 col-lg-2">
+                                <p class="h5 text-center">Anti DDOS<span><i class="fad fa-check text-success"></i></span></p>
+                            </div>
+                            <div class="col-sm-12 col-md-2 col-lg-2">
+                                <p class="h5 text-center">Docker<span><i class="fad fa-times text-danger"></i></span></p>
+                            </div>
+                        </div>
+                        <div class="btn mt-3" @click="document.getElementById('product2').click();">Commander</div>
+                    </div>
+                </div>
+            </div>
+
+            <div x-data="{
+                    id: 3,
+                    get expanded() {
+                        return this.active === this.id
+                    },
+                    set expanded(value) {
+                        this.active = value ? this.id : null
+                    },
+                }" role="region" class="border border-black">
+                <div class="product_item row justify-content-center align-middle">
+                    <div class="mr-4 text-center" style="padding-top: 9px;"><p class="tag tag-bg"><span>L</span></p></div>
+                    <div class="col-sm-12 col-md-1 col-lg-1 ml-md-2 ml-lg-2 pl-sm-3 p-0"><p class="h5">CPU<span>0 vCPU </span></p></div>
+                    <div class="col-sm-12 col-md-1 col-lg-1 mt-sm-2 mt-md-0 mt-lg-0"><p class="h5">RAM <span>0 Go</span></p></div>
+                    <div class="col-sm-12 col-md-1 col-lg-1 mt-sm-2 mt-md-0 mt-lg-0"><p class="h5">DISQUE <span style="">0 Go</span></p></div>
+                    <div class="col-sm-12 col-md-1 col-lg-2 mt-sm-2 mt-md-0 mt-lg-0"><p class="h5">CONNEXION <span>IPv6</span></p></div>
+                    <div class="col-sm-12 col-md-1 col-lg-2 mt-sm-2 mt-md-0 mt-lg-0"><p class="h5">BANDE PASSANTE <span>0 Mbps</span></p></div>
+                    <div class="col-sm-12 col-md-1 col-lg-2 mt-sm-2 mt-md-0 mt-lg-0 pr-4"><span style="color: #222F3E;" class="price">0.00 € / mois</span></div>
+                    <a id="product3" class="d-none" href="/fr/produits/add/6"></a>
+                    <div class="col-2 p-0"><div class="btn" x-on:click="expanded = !expanded" :aria-expanded="expanded">Voir plus</div></div>
+                    <div class="col-12 pt-4" x-show="expanded" x-collapse>
+                        <hr>
+                        <div class="row product_item_expanded mt-2">
+                            <div class="col-sm-12 col-md-2 col-lg-3">
+                                <p class="h5">Processeur<span>Xeon 3.60GHz</span></p>
+                            </div>
+                            <div class="col-sm-12 col-md-2 col-lg-3">
+                                <p class="h5">Virtualisation<span>LXC</span></p>
+                            </div>
+                            <div class="col-sm-12 col-md-2 col-lg-2">
+                                <p class="h5">Disponibilité<span>5 Minutes</span></p>
+                            </div>
+                            <div class="col-sm-12 col-md-2 col-lg-2">
+                                <p class="h5 text-center">Anti DDOS<span><i class="fad fa-check text-success"></i></span></p>
+                            </div>
+                            <div class="col-sm-12 col-md-2 col-lg-2">
+                                <p class="h5 text-center">Docker<span><i class="fad fa-times text-danger"></i></span></p>
+                            </div>
+                        </div>
+                        <div class="btn mt-3" @click="document.getElementById('product3').click();">Commander</div>
+                    </div>
+                </div>
+            </div>
+            <!-- End. -->
+        </div>
+    </div>
+</section>
+
+<section class="section section--light-blue-bg mb-10 mt-10">
+    <div class="container">
+        <div class="section-heading section-heading--center">
+            <h2 class="__title  lc-text-info-color">Fonctionnalités & Caractéristiques</h2>
+        </div>
+        <div class="spacer py-6"></div>
+        <div class="row">
+            <div class="col-12">
+                <!-- start services -->
+                <div class="services services--s2">
+                    <div class="__inner">
+                        <div class="row justify-content-md-center no-gutters">
+                            <div class="col-12 col-md-11 col-xl-10">
+
+                                <div class="row justify-content-lg-center">
+                                    <!-- start item -->
+                                    <div class="col-12 col-lg-6">
+                                        <div class="__item">
+                                            <div class="d-sm-table">
+                                                <div class="d-sm-table-cell align-middle">
+                                                    <i class="__ico icon-box icon-box--circled" style="background-color: #222F3E">
+
+                                                    </i>
+                                                </div>
+                                                <div class="d-sm-table-cell align-middle">
+                                                    <h4 class="__title">Complète autonomie</h4>
+                                                    <p>Administrez votre serveur virtuel sans aucune limitation grâce à l'accès root qui vous est fourni.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end item -->
+                                    <!-- start item -->
+                                    <div class="col-12 col-lg-6">
+                                        <div class="__item">
+                                            <div class="d-sm-table">
+                                                <div class="d-sm-table-cell align-middle">
+                                                    <i class="__ico icon-box icon-box--circled" style="background-color: #222F3E">
+
+                                                    </i>
+                                                </div>
+
+                                                <div class="d-sm-table-cell align-middle">
+                                                    <h4 class="__title">Évolutivité</h4>
+                                                    <p>Augmentez ou diminuez la puissance de votre VPS à tout moment depuis votre Panel Client. Aucun transfert de données ou changement de configuration n'est nécessaire.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end item -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end services -->
+            </div>
+        </div>
+    </div>
+</section>

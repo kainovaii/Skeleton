@@ -45,8 +45,8 @@
                             </div>
                         </div>
 
+                        <% if (cart.product_type === "vps-lxc" || cart.product_type === "vps-kvm") { %>
                         <div class="hr mt-4 mb-5"></div>
-
                         <span class="text-primary-dark"><i class="fad fa-globe"></i> Système d'exploitation</span>
                         <div class="row mt-3">
                             <div  class="col-3">
@@ -98,7 +98,7 @@
                                 </div>
                             </div>
                         </div>
-
+                        <% } %>
                         <div class="hr mt-4 mb-5"></div>
 
                         <span class="text-primary-dark"><i class="fad fa-map-pin"></i> Localisation</span>
@@ -159,24 +159,85 @@
                             <li class="p-0" style="font-size: 16px;"><strong>Mémoire</strong> <span><%- session.cart.product_memory %> Go</span></li>
                             <li class="p-0" style="font-size: 16px;"><strong>Stockage</strong> <span><%- session.cart.product_disk %> Go SSD NVMe</span></li>
                             <li class="hr"></li>
-                            <li class="p-0" style="font-size: 16px;"><strong> Système d'exploitation</strong> <span x-text="system"></span></li>
-                            <li class="p-0" style="font-size: 16px;"><strong> Localisation</strong> <span x-text="datacenter"></span></li>
-                            <li class="p-0" style="font-size: 16px;"><strong>Cycle de facturation</strong> <span x-text="cycle"></span></li>
+                            <% if (cart.product_type === "vps-lxc" || cart.product_type === "vps-kvm") { %>
+                            <template x-if="system">
+                                <li class="p-0" style="font-size: 16px;"><strong> Système d'exploitation</strong> <span x-text="system"></span></li>
+                            </template>
+                            <template x-if="system == ''">
+                                <li class="p-0" style="font-size: 16px;"><strong> Système d'exploitation</strong> Non défini</li>
+                            </template>
+                            <% } %>
+                            <% if (cart.product_type === "vps-win") { %>
+                            <li class="p-0" style="font-size: 16px;"><strong> Système d'exploitation</strong> Windows</li>
+                            <% } %>
+                            <template x-if="datacenter">
+                                <li class="p-0" style="font-size: 16px;"><strong> Localisation</strong> <span x-text="datacenter"></span></li>
+                            </template>
+                            <template x-if="datacenter == ''">
+                                <li class="p-0" style="font-size: 16px;"><strong> Localisation</strong> Non défini</li>
+                            </template>
+                            <template x-if="cycle">
+                                <li class="p-0" style="font-size: 16px;"><strong>Cycle de facturation</strong> <span x-text="cycle"></span></li>
+                            </template>
+                            <template x-if="cycle == ''">
+                                <li class="p-0" style="font-size: 16px;"><strong>Cycle de facturation</strong> Non défini</li>
+                            </template>
                             <li class="hr"></li>
                             <div class="sidebar_cart_footer mb-3">
                                 <span>Total à payer aujourd'hui</span>
                                 <h4><%- cart.product_price %>€</h4>
                             </div>
                             <% if (!session.userid) { %>
-                            <a href="/fr/espace-client" class="custom-btn custom-btn--medium custom-btn--style-2 w-100">Connexion</a>
+                            <div>
+                                <a href="/fr/espace-client" type="submit" class="btn-custom">Connexion</a>
+                            </div>
                             <% } else { %>
-                            <template x-if="system">
-                                <template x-if="datacenter">
-                                    <template x-if="cycle">
-                                        <button type="submit" class="custom-btn custom-btn--medium custom-btn--style-2 w-100">Passer au paiement</button>
+                                <% if (cart.product_type === "vps-lxc" || cart.product_type === "vps-kvm") { %>
+                                <template x-if="system">
+                                    <template x-if="datacenter">
+                                        <template x-if="cycle">
+                                            <button type="submit" class="btn-custom">Passer au paiement</button>
+                                        </template>
                                     </template>
                                 </template>
-                            </template>
+                                <template x-if="system == ''">
+                                    <template x-if="datacenter == ''">
+                                        <template x-if="cycle == ''">
+                                            <button type="submit" class="btn-custom">Passer au paiement</button>
+                                        </template>
+                                    </template>
+                                </template>
+                                <template x-if="system">
+                                    <template x-if="datacenter == ''">
+                                        <template x-if="cycle == ''">
+                                            <button type="submit" class="btn-custom">Passer au paiement</button>
+                                        </template>
+                                    </template>
+                                </template>
+                                <template x-if="system">
+                                    <template x-if="datacenter">
+                                        <template x-if="cycle == ''">
+                                            <button type="submit" class="btn-custom">Passer au paiement</button>
+                                        </template>
+                                    </template>
+                                </template>
+                                <% } else { %>
+                                <template x-if="datacenter == ''">
+                                    <template x-if="cycle == ''">
+                                        <button type="submit" class="btn-custom">Passer au paiement</button>
+                                    </template>
+                                </template>
+                                <template x-if="datacenter">
+                                    <template x-if="cycle == ''">
+                                        <button type="submit" class="btn-custom">Passer au paiement</button>
+                                    </template>
+                                </template>
+                                <template x-if="datacenter">
+                                    <template x-if="cycle">
+                                        <button type="submit" class="btn-custom">Passer au paiement</button>
+                                    </template>
+                                </template>
+                                <% } %>
                             <% } %>
                         </ul>
                     </div>

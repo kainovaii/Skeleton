@@ -1,0 +1,78 @@
+<% service.forEach(function (service) { %>
+    <section class="section">
+        <div class="start-screen__bg-container">
+            <div class="start-screen__bg" style="background-image: url(/assets/front/img/bg_1.png);background-position: center bottom;"></div>
+        </div>
+    </section>
+    <section style="position: relative; top: -160px; margin-top: 15px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-12 pt-3">
+                    <div class="client-nav-profile-container mb-5 row">
+                        <a class="service_button bg-success w-100" style="background: #4CAF50; color: white;" href=""><i class="fad fa-play"></i> Démarrer</a>
+                        <% if (2 >= 5) { %>
+                            <a class="service_button bg-success w-100 mt-2" style="background: #FB8C00; color: white;" href=""><i class="fad fa-stop"></i> Arrêter</a>
+                            <a class="service_button bg-success w-100 mt-2" style="background: #FF5252; color: white;" href=""><i class="fad fa-skull"></i> Forcer l'arrêt</a>
+                        <% } %>
+                    </div>
+                    <div class="row mt-7">
+                        <div class="col-6">
+                            <a href="/fr/espace-client/mes-services/<%- service.id %>" class="btn btn-square text-sm" style="">
+                                <span class="btn-square-text-container">
+                                    <span class="btn-square-icon d-block"><i class="fad fa-analytics"></i></span>
+                                    <span class="d-block btn-square-text">Statistiques</span>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="col-6">
+                            <a href="/fr/espace-client/mes-services/<%- service.id %>/terminal" class="btn btn-square text-sm" style="">
+                                <span class="btn-square-text-container">
+                                    <span class="btn-square-icon d-block"><i class="fad fa-terminal"></i></span>
+                                    <span class="d-block btn-square-text">Terminal</span>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="col-6">
+                            <a href="/fr/espace-client/mes-services/<%- service.id %>/sauvegarde" class="btn btn-square text-sm" style="">
+                                <span class="btn-square-text-container">
+                                    <span class="btn-square-icon d-block"><i class="fad fa-save"></i></span>
+                                    <span class="d-block btn-square-text">Sauvegarde</span>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="col-6">
+                            <a href="/fr/espace-client/mes-services/<%- service.id %>/reinstallation" class="btn btn-square text-sm" style="">
+                                <span class="btn-square-text-container">
+                                    <span class="btn-square-icon d-block"><i class="fad fa-repeat"></i></span>
+                                    <span class="d-block btn-square-text">Reinstallation</span>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="col-6">
+                            <a href="/fr/espace-client/mes-services/<%- service.id %>/firewall" class="btn btn-square text-sm" style="">
+                                <span class="btn-square-text-container">
+                                    <span class="btn-square-icon d-block"><i class="fad fa-shield"></i></span>
+                                    <span class="d-block btn-square-text">Firewall</span>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="col-6">
+                            <a href="/fr/espace-client/mes-services/<%- service.id %>/utilisateurs" class="btn btn-square text-sm" style="">
+                                <span class="btn-square-text-container">
+                                    <span class="btn-square-icon d-block"><i class="fad fa-users"></i></span>
+                                    <span class="d-block btn-square-text">Utilisateurs</span>
+                                </span>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-lg-9 col-md-9 col-sm-12">
+                    <h3 onclick="document.getElementById('service_link').click();" class="d-flex"><a id="service_link" class="d-none" href="/fr/espace-client/mes-services"></a><div class="fa-button" href="/fr/espace-client"><i class="fad fa-chevron-left"></i></div> <%- service.name %></h3>
+
+                </div>
+            </div>
+        </div>
+    </section>
+<% }) %>

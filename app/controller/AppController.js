@@ -1,7 +1,8 @@
-const AppModel = require("../model/AppModel");
+const AppModel = require("../model/UserModel");
 const bcrypt = require('bcryptjs');
 const vardump = require("@smartankur4u/vardump")
 const EmailService = require("../service/EmailService")
+const WalletModel = require("../model/WalletModel")
 
 module.exports = {
 
@@ -34,13 +35,34 @@ module.exports = {
                         session.username = user.username
                         session.email = user.email
                         session.power = user.power
+                        session.company = user.company
+                        session.tax_id = user.tax_id
+                        session.address1 = user.address1
+                        session.address2 = user.address2
+                        session.city = user.city
+                        session.state = user.state
+                        session.postcode = user.postcode
+                        session.country = user.country
                         session.message = "";
 
-                        AppModel.getUserID(req.con, session.userid,function (err, user) {
-                            res.redirect("/fr")
+                        WalletModel.getByUser(req.con, session.username,function (err, user) {
+                            if (!user.length > 0)
+                            {
+                                data = {
+                                    username: session.username
+                                }
+
+                                WalletModel.create(req.con, data)
+                                session.solde = 0
+                                res.redirect("/fr")
+                            }
+                            user.forEach(function (user) {
+                                session.solde = user.solde
+                                res.redirect("/fr")
+                            })
                         })
 
-                        const data = {
+                        let data = {
                             subject: "Notification de connexion à votre compte",
                             text: 'Bonjour, \n\n Nous détectons une nouvelle adresse IP lors de la connexion a votre compte. 2a01:e0a:4bd:8120:e1e8:5603:1f87:6c74 \n\n Cordialement, \n LayCloud',
                             email: user.email
@@ -50,6 +72,7 @@ module.exports = {
                     } else {
                         req.session.message = "Mot de passe incorrect"
                         res.redirect("/fr/espace-client")
+
                     }
                 })
             } else {
@@ -62,9 +85,7 @@ module.exports = {
     },
 
     activation: function(req, res) {
-
         res.render("manager/activation")
-
     },
 
     activationReq: function(req, res) {
@@ -86,7 +107,7 @@ module.exports = {
                         bcrypt.hash(password, 10, function(err, hash) {
                             AppModel.updateUserPass(req.con, hash, user.id, function (err, user) {
                                 req.session.message = "Your account has been activate"
-                                res.redirect("/fr/espace-clientconnexion")
+                                res.redirect("/fr/espace-client/connexion")
                                 vardump(err)
                             })
                         });
@@ -99,6 +120,35 @@ module.exports = {
                 res.render("app", {view: 'front/account/bare_cloud_standard_vps.ejs', data: user, session: session})
             })
         }
+    },
+
+    updateUser: function(req, res) {
+        const session = req.session;
+
+        const data = {
+            id: session.userid,
+            company: req.body.company,
+            tax_id: req.body.tax_id,
+            address1: req.body.address1,
+            address2: req.body.address2,
+            city: req.body.city,
+            state: req.body.state,
+            postcode: req.body.postcode,
+            country: req.body.country,
+        }
+
+        AppModel.updateUser(req.con, data,function (err, user) {
+            session.company = req.body.company
+            session.tax_id = req.body.tax_id
+            session.address1 = req.body.address1
+            session.address2 = req.body.address2
+            session.city = req.body.city
+            session.state = req.body.state
+            session.postcode = req.body.postcode
+            session.country = req.body.country
+
+            res.redirect("/fr/espace-client/mon-compte")
+        })
     },
 
     logout: function(req, res) {

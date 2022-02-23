@@ -11,6 +11,10 @@ module.exports = {
         con.query(`SELECT * FROM users_services WHERE id = '${id}'`, callback)
     },
 
+    getServiceSharedUser: function(con, service_id, callback) {
+        con.query(`SELECT * FROM shared_users_services WHERE service_id = '${service_id}'`, callback)
+    },
+
     create: function(con, data, callback) {
         con.query(
             `INSERT INTO users_services SET

@@ -1,68 +1,64 @@
-<div class="col-lg-12">
-    <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
-        <div class="iq-card-header d-flex justify-content-between">
-            <div class="iq-header-title">
-                <h4 class="card-title">Mes factures</h4>
-            </div>
-            <div class="iq-card-header-toolbar d-flex align-items-center">
-                <div class="dropdown">
-                    <span class="dropdown-toggle text-primary" id="dropdownMenuButton2" data-toggle="dropdown" aria-expanded="false">
-                        <i class="ri-more-2-fill"></i>
-                    </span>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton2" style="">
-                        <a class="dropdown-item" href="#"><i class="ri-eye-fill mr-2"></i>View</a>
-                        <a class="dropdown-item" href="#"><i class="ri-delete-bin-6-fill mr-2"></i>Delete</a>
-                        <a class="dropdown-item" href="#"><i class="ri-pencil-fill mr-2"></i>Edit</a>
-                        <a class="dropdown-item" href="#"><i class="ri-printer-fill mr-2"></i>Print</a>
-                        <a class="dropdown-item" href="#"><i class="ri-file-download-fill mr-2"></i>Download</a>
+<section class="section">
+    <div class="start-screen__bg-container">
+        <div class="start-screen__bg" style="background-image: url(/assets/front/img/bg_1.png);background-position: center bottom;"></div>
+    </div>
+</section>
+<section style="position: relative; top: -160px; margin-top: 15px;">
+    <div class="container">
+        <div class="row">
+
+            <%- include("../partial/sidebar.ejs") %>
+
+            <div class="col-lg-9 col-md-9 col-sm-12">
+                <h3 onclick="document.getElementById('service_link').click();" class="d-flex"><a id="service_link" class="d-none" href="/fr/espace-client"></a><div class="fa-button" href="/fr/espace-client"><i class="fad fa-chevron-left"></i></div> Mes factures</h3>
+
+                <div class="row">
+                    <% invoice.forEach(function (invoice) { %>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div onclick="document.getElementById('srv_link-<%- invoice.id %>').click();" class="card-service mb-6">
+                                <div class="card-service-header">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <a id="srv_link-<%- invoice.id %>" style="color: black !important; font-size: 16px;" href="/fr/espace-client/mes-factures/<%- invoice.id %>">#<%- invoice.id %></a>
+                                        </div>
+                                        <div class="col-4 text-right">
+                                            <% if (invoice.state === 0) { %>
+                                                <label class="label label-danger">Impayée</label>
+                                            <% } %>
+                                            <% if (invoice.state === 1) { %>
+                                                <label class="label label-success">Payée</label>
+                                            <% } %>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-service-body">
+                                    <div class="p-3 card-service-body-text">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <h6 class="text-uppercase">Méthode</h6>
+                                                <span><%- invoice.method %></span>
+                                            </div>
+                                            <div class="col-6">
+                                                <h6 class="text-uppercase">Total</h6>
+                                                <span><%- invoice.total %>€</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="card-service-footer">
+
+                                </div>
+                            </div>
+                        </div>
+                    <% }) %>
+                    <% if (!invoice.length > 0) { %>
+                    <div class="col-12">
+                        <p class="text-center mt-4">Vous n'avez pas de factures</p>
                     </div>
+                    <% } %>
                 </div>
             </div>
         </div>
-        <div class="iq-card-body">
-            <div class="table-responsive">
-                <table class="table mb-0 table-borderless tbl-server-info">
-                    <thead>
-                    <tr>
-                        <th scope="col">Facture</th>
-                        <th scope="col">Date de facturation</th>
-                        <th scope="col">Date d'échéance</th>
-                        <th scope="col">Total</th>
-                        <th scope="col">État</th>
-                        <th scope="col"></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <% invoice.forEach(function (invoice) { %>
-                        <tr>
-                            <td>
-                                <h6>194600113</h6>
-                            </td>
-                            <td class="pl-0">14/12/2021</td>
-                            <td class="pl-0">15/12/2022</td>
-                            <td class="pl-0">3.99€</td>
-                            <td class="pl-0">
-                                <% if (invoice.state === 0) { %>
-                                    <div class="text-danger"><i class="fad fa-circle"></i> Non Payée</div>
-                                <% } %>
-                                <% if (invoice.state === 1) { %>
-                                    <div class="text-success"><i class="fad fa-circle"></i> Payée</div>
-                                <% } %>
-                            </td>
-
-                            <td>
-                                <span class="text-black font-size-24" id="dropdownMenuButton3">
-                                    <a href="/fr/espace-client/mes-factures/<%- invoice.id %>">
-                                        <i class="fad fa-eye lc-text-info-color"></i>
-                                    </a>
-                                </span>
-                            </td>
-                        </tr>
-                    <% }) %>
-
-                    </tbody>
-                </table>
-            </div>
-        </div>
     </div>
-</div>
+</section>

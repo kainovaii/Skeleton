@@ -1,9 +1,9 @@
 <div class="col-lg-3 col-md-3 col-sm-12 pt-3"><!-- style="background: rgba(37, 94, 152, 0.1); border-radius: 10px;" -->
     <div class="client-nav-profile-container mb-5">
         <img src="https://www.gravatar.com/avatar/f040db5cea3e5404595d9020fee3ab1a?s=1024&d=retro&r=g" alt="">
-        <h5 class="mt-5">Tom Michelon</h5>
-        <span>MT56788-LC</span>
-        <center><a class="mt-3" href="/fr/espace-client/portefeuille"><i class="fad fa-money-bill-wave mr-1" style="color: #85BB65"></i> 0.00€</a></center>
+        <h5 class="mt-5"><%- session.fname %> <%- session.lname %></h5>
+        <span class="text-uppercase"><%- session.username %></span>
+        <center><a class="mt-3" href="/fr/espace-client/portefeuille"><i class="fad fa-money-bill-wave mr-1" style="color: #85BB65"></i> <%- session.solde %>€</a></center>
     </div>
     <div class="row mt-7">
         <div class="col-6">

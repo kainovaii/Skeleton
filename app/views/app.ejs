@@ -15,7 +15,7 @@
             <div class="container-fluid">
                 <div class="row align-items-center no-gutters" style="color: #145595;">
                     <a class="top-bar__logo site-logo" href="/">
-                        <img class="img-fluid js-tilt" src="/assets/front/img/favicon.png" width="40" alt="Logo" />
+                        <img class="img-fluid js-tilt" src="/assets/front/img/logo.svg" width="40" alt="Logo" />
                     </a>
                     <a id="top-bar__navigation-toggler" class="top-bar__navigation-toggler" href="javascript:void(0);">
                         <span></span>
@@ -25,24 +25,66 @@
                             <ul>
                                 <li class="has-submenu">
                                     <a class="nav-link" href="javascript:void(0);">BareMetal Cloud</a>
-                                    <ul class="submenu">
-                                        <li><a href="/fr/produits/serveurs-vps-standard">VPS Standard</a></li>
-                                        <li><a href="/fr/produits/serveurs-vps-windows">VPS Windows</a></li>
-                                        <li><a href="/">Serveurs Dediées</a></li>
+                                    <ul class="submenu" style="width: 400px;">
+                                        <li>
+                                            <a class="nav__item" href="/fr/produits/serveurs-vps-standard">
+                                                <i style="font-size: 50px; padding-top: 15px; color: #222F3E;" class="fab fa-linux"></i>
+                                                <div>
+                                                    <span class="nav__link-title">VPS Standard</span>
+                                                    <span class="nav__link-desc">L'offre Standard Cloud est une offre de serveurs virtuels (VPS) polyvalents sous Linux</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="nav__item" href="/fr/produits/serveurs-vps-windows">
+                                                <i style="font-size: 50px; padding-top: 15px; color: #222F3E;" class="fab fa-windows"></i>
+                                                <div>
+                                                    <span class="nav__link-title">VPS windows</span>
+                                                    <span class="nav__link-desc">L'offre Standard Cloud est une offre de serveurs virtuels (VPS) polyvalents sous Linux</span>
+                                                </div>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </li>
+
                                 <li class="has-submenu">
                                     <a class="nav-link" href="javascript:void(0);">Web Cloud</a>
-                                    <ul class="submenu">
-                                        <li><a href="/">Nom de domaines</a></li>
-                                        <li><a href="/">Hébergement web</a></li>
+                                    <ul class="submenu" style="width: 400px;">
+                                        <li>
+                                            <a class="nav__item" href="/fr/produits/#">
+                                                <i style="font-size: 50px; padding-top: 15px;" class="fad fa-globe"></i>
+                                                <div>
+                                                    <span class="nav__link-title">Nom de domaines</span>
+                                                    <span class="nav__link-desc">L'offre Standard Cloud est une offre de serveurs virtuels (VPS) polyvalents sous Linux</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="nav__item" href="/fr/produits/#">
+                                                <i style="font-size: 50px; padding-top: 15px;" class="fad fa-browser"></i>
+                                                <div>
+                                                    <span class="nav__link-title">Hébergement cPanel</span>
+                                                    <span class="nav__link-desc">L'offre Standard Cloud est une offre de serveurs virtuels (VPS) polyvalents sous Linux</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="nav__item" href="/fr/produits/#">
+                                                <i style="font-size: 50px; padding-top: 15px;" class="fad fa-browser"></i>
+                                                <div>
+                                                    <span class="nav__link-title">Hébergement Plesk</span>
+                                                    <span class="nav__link-desc">L'offre Standard Cloud est une offre de serveurs virtuels (VPS) polyvalents sous Linux</span>
+                                                </div>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </li>
+
                             </ul>
                         </nav>
                         <nav id="top-bar__navigation" class="top-bar__navigation" style="margin-left: auto" role="navigation">
                             <% if (session.userid) { %>
-                            <div onclick="document.getElementById('lnk').click();" class="user-avatar-link">
+                            <div onclick="document.getElementById('lnk').click();" class="user-avatar-link mx-sm-10 mx-md-0 m-lg-0">
                                 <a class="d-none" id="lnk" href="/fr/espace-client"></a>
                                 <img src="https://www.gravatar.com/avatar/f040db5cea3e5404595d9020fee3ab1a?s=1024&d=retro&r=g" alt="">
                                 <span><%- session.username %></span>
@@ -68,7 +110,6 @@
         <div class="footer__line footer__line--first">
             <div class="container">
                 <div class="row">
-
                     <div class="col col-sm-5 col-md-3 col-lg-2">
                         <div class="footer__item">
                             <h4 class="footer__item__title">Nos produits</h4>
@@ -83,7 +124,6 @@
                             </nav>
                         </div>
                     </div>
-
                     <div class="col col-sm-5 col-md-3 col-lg-2">
                         <div class="footer__item">
                             <h4 class="footer__item__title">Outils</h4>
@@ -97,39 +137,41 @@
                             </nav>
                         </div>
                     </div>
-
                     <div class="col col-sm-5 col-md-3 col-lg-3">
                         <div class="footer__item">
                             <h4 class="footer__item__title">Informations</h4>
                             <nav class="footer__navigation">
                                 <ul>
                                     <!-- li class="active" -->
-                                    <li><a href="">Mentions légales</a></li>
+                                    <li><a href="/fr/mentions-legales">Mentions légales</a></li>
                                     <li><a href="">Données personnelles</a></li>
                                     <li><a href="">CGU / CGV</a></li>
                                 </ul>
                             </nav>
                         </div>
                     </div>
-
-                    <div class="col-12 col-md-6 col-lg-4">
+                    <div class="col-12 col-md-6 col-lg-4 p-0">
                         <div class="footer__item">
-
-
-                            <address class="footer__address footer__address--s3">
-                                <p><strong>Siret:</strong> 90336899100019</p>
-                                <p><strong>Email:</strong> hello@laycloud.eu</p>
-                            </address>
+                            <div class="trust-pilot-box">
+                                <div class="position-relative" style="top: 30px">
+                                    <img src="https://cdn.trustpilot.net/brand-assets/4.1.0/stars/stars-4.5.svg" alt="trust-pilot-img">
+                                    <span class="d-block mt-2">
+                                    <img style="width: 20px;" src="https://cdn.trustpilot.net/brand-assets/1.6.0/favicons/favicon.ico" alt="trust-pilot-icon">
+                                    <span class="icon">Trustpilot</span>
+                                    <p class="mt-2">Soyez le premier à donner votre avis</p>
+                                </span>
+                                </div>
+                                <a type="submit" href="https://fr.trustpilot.com/evaluate/laycloud.eu?utm_medium=trustbox&utm_source=MicroReviewCount">
+                                    <i class="fad fa-chevron-double-right"></i>
+                                </a>
+                            </div>
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="footer__waves-container">
             <svg class="footer__wave js-wave" data-wave="{&quot;height&quot;: 40, &quot;bones&quot;: 5, &quot;amplitude&quot;: 70, &quot;color&quot;: &quot;rgba(215, 219, 224, 0.2)&quot;, &quot;speed&quot;: 0.3}" width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg"><defs></defs><path class="wave-1" d="M 0 79.511 C 152.502 96.613 152.502 96.613 305.102 88.064 C 457.702 79.511 457.702 79.511 610.302 79.859 C 762.902 80.208 762.902 80.208 915.5 65.355 C 1068.098 50.509 1068.098 50.509 1220.698 63.057 C 1373.298 75.603 1373.298 75.603 1525.898 72.12 L 1525.898 3518.5 L 0 3518.5 Z" fill="rgba(215, 219, 224, 0.2)"></path></svg>
-
             <svg class="footer__wave js-wave" data-wave="{&quot;height&quot;: 60, &quot;bones&quot;: 4, &quot;amplitude&quot;: 90, &quot;color&quot;: &quot;rgba(215, 219, 224, 0.2)&quot;, &quot;speed&quot;: 0.35}" width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg"><defs></defs><path class="wave-2" d="M 0 101.62 C 190.611 128.186 190.611 128.186 381.357 114.903 C 572.106 101.62 572.106 101.62 762.854 111.566 C 953.601 121.515 953.601 121.515 1144.351 97.152 C 1335.101 72.779 1335.101 72.779 1525.847 111.566 L 1525.847 3518.5 L 0 3518.5 Z" fill="rgba(215, 219, 224, 0.2)"></path></svg>
         </div>
     </footer>
@@ -154,7 +196,7 @@
     </div>
     <div id="fo-conversation-popup-wrapper" class="false" style="right: 30px; width: 350px">
         <div id="fo-iframe-wrapper">
-            <img class="blob-sm2" src="/assets/front/img/blob-sm2.png" alt="">
+
         </div>
     </div>
 </div>
