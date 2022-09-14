@@ -2,16 +2,18 @@ const express = require("express")
 require("dotenv").config()
 const sessions = require("express-session")
 const app = express()
-var methodOverride = require("method-override")
+const methodOverride = require("method-override")
 const cookieParser = require("cookie-parser")
 const path = require("path")
-const con = require("./app/config/db.js")
+const con = require("./src/Config/Database")
 const bodyParser = require("body-parser")
 const paypal = require('paypal-rest-sdk');
-const consoleColor = require("@yaireo/console-colors")
-app.set("views", path.join(__dirname, "app/views"))
-app.set("view engine", "ejs")
+const flash = require('connect-flash');
+const engine = require('express-engine-jsx');
 
+app.set("views", path.join(__dirname, "src/Template"))
+app.set('view engine', 'jsx');
+app.engine('jsx', engine);
 
 // connecting route to database
 app.use(function(req, res, next) {
@@ -19,7 +21,7 @@ app.use(function(req, res, next) {
     req.con = con
     next()
   }
-})
+})  
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(sessions({
@@ -35,21 +37,23 @@ paypal.configure({
   'client_secret': process.env.PAYPAL_SECRET
 });
 
-// parsing body request
 app.use(cookieParser());
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride("_method"))
 app.use(express.static(path.join(__dirname, '/')));
+app.use(flash());
 
 // include router
-const Router = require("./app/routes/Router")
+const HomeRouter = require("./src/Domain/Home/HomeRouter");
+const AuthRouter = require("./src/Domain/Auth/AuthRouter");
+
 const http = require("http");
 const https = require("https");
 const fs = require("fs");
 
 // routing
-app.use("/", Router)
+app.use("/", HomeRouter, AuthRouter)
 
 // starting server
 app.listen(process.env.APP_PORT, function() {
